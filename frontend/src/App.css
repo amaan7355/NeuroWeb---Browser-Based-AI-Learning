@@ -3,3 +3,9 @@
     background-size: cover;
     height: 100vh;
 }
+
+.nav-item .active{
+    font-weight: bolder;
+    border-bottom: 2px solid blueviolet;
+    /* color: blueviolet !important; */
+  }

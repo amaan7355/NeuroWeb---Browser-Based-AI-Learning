@@ -42,7 +42,7 @@ const LoginForm = ({ setSignupOpen }) => {
                 setAvatar(data.avatar);
                 sessionStorage.setItem('user', JSON.stringify(data));
                 setLoggedIn(true);
-                navigate("/home")
+                navigate("/main/home")
             }
             else if (res.status === 401) {
                 enqueueSnackbar('Wrong Email or Password', {
