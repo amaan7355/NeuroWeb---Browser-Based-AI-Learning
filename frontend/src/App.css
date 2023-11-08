@@ -4,8 +4,22 @@
     height: 100vh;
 }
 
+/* .body-home{
+    background-image: url("https://wallpapercave.com/wp/wp7890704.png");
+    background-size: cover;
+    height: 100%;
+} */
+
 .nav-item .active{
     font-weight: bolder;
     border-bottom: 2px solid blueviolet;
     /* color: blueviolet !important; */
+  }
+
+  .rotate1{
+    transform: rotate(6deg);
+  }
+
+  .rotate2{
+    transform: rotate(-6deg);
   }

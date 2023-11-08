@@ -2,7 +2,8 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div>
+    <div className=''>
+      <div className='body-home'>
       <div id="preview" className="preview">
         <div style={{ display: "none" }} />
         <div>
@@ -43,12 +44,12 @@ const Home = () => {
                           {" "}
                           <h1 className="mb-4 display-4 fw-bold ls-tight">
                             {" "}
-                            <span>Are you ready</span> <br />{" "}
-                            <span className="text-danger">for an adventure?</span>{" "}
+                            <span>A Multisensory Experience:</span> <br />{" "}
+                            <span className="text-danger">Images, Audio, Text</span>{" "}
                           </h1>{" "}
                           <div className="d-md-flex flex-row">
                             {" "}
-                            <div className="form-outline flex-fill me-1 mb-4 mb-md-0">
+                            {/* <div className="form-outline flex-fill me-1 mb-4 mb-md-0">
                               {" "}
                               <input
                                 type="email"
@@ -74,16 +75,35 @@ const Home = () => {
                                 />
                                 <div className="form-notch-trailing" />
                               </div>
-                            </div>{" "}
+                            </div>{" "} */}
+                            <a
+                        className="btn btn-danger btn-lg py-3 px-5 mb-2 me-2 mt-4"
+                        href="#"
+                        role="button"
+                        aria-controls="#picker-editor"
+                        draggable="false"
+                      >
+                        Get started
+                      </a>{" "}
+                      <a
+                        className="btn btn-link text-danger btn-lg py-3 px-5 mb-2 me-2 mt-4"
+                        data-ripple-color="success"
+                        href="#"
+                        role="button"
+                        aria-controls="#picker-editor"
+                        draggable="false"
+                      >
+                        Learn more
+                      </a>
                             {/* Submit button */}{" "}
-                            <button
+                            {/* <button
                               type="submit"
                               className="btn            btn-danger btn-lg ms-md-2"
                               fdprocessedid="r2obga"
                               aria-controls="#picker-editor"
                             >
                               Subscribe
-                            </button>{" "}
+                            </button>{" "} */}
                           </div>{" "}
                         </div>{" "}
                       </div>{" "}
@@ -92,7 +112,7 @@ const Home = () => {
                       {" "}
                       <img
                         src="https://images.unsplash.com/photo-1625314887424-9f190599bd56?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Nnw4NTU3MTE1fHxlbnwwfHx8fHw%3D"
-                        className="w-100 rounded-4 shadow-4 rotate-lg-6"
+                        className="w-75 rounded-4 shadow-4 rotate1"
                         alt=""
                         aria-controls="#picker-editor"
                         draggable="false"
@@ -122,12 +142,11 @@ const Home = () => {
                     {" "}
                     <h2 className="mb-4 display-3 fw-bold ls-tight">
                       {" "}
-                      <span>Are you ready</span> <br />{" "}
-                      <span className="text-primary">for an adventure?</span>{" "}
+                      <span>Your Journey Starts Here!</span> <br />{" "}
+                      <span className="text-primary"></span>{" "}
                     </h2>{" "}
-                    <p className="text-muted lead">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-                      officia consequatur adipisci tenetur repudiandae rerum quos.
+                    <p className="text-muted lead fs-3">
+                    Join us on a journey of exploration and creativity. Whether you're a seasoned AI enthusiast or just starting to dip your toes into the world of machine learning, our MERN project is your canvas. Start your journey to AI empowerment right here, right now.
                     </p>{" "}
                   </div>{" "}
                 </div>{" "}
@@ -157,6 +176,16 @@ const Home = () => {
                   {" "}
                   <div className="row g-0 align-items-center">
                     {" "}
+                    <div className="col-lg-6 mb-5 mb-lg-0">
+                      {" "}
+                      <img
+                        src="https://img.freepik.com/premium-photo/worker-robots-working-office-staring_853932-507.jpg"
+                        className="w-100 rounded-4 shadow-4 rotate2"
+                        alt=""
+                        aria-controls="#picker-editor"
+                        draggable="false"
+                      />{" "}
+                    </div>{" "}
                     <div className="col-lg-6 mb-5 mb-lg-0">
                       {" "}
                       <div
@@ -249,16 +278,7 @@ const Home = () => {
                         </div>{" "}
                       </div>{" "}
                     </div>{" "}
-                    <div className="col-lg-6 mb-5 mb-lg-0">
-                      {" "}
-                      <img
-                        src="https://img.freepik.com/premium-photo/worker-robots-working-office-staring_853932-507.jpg"
-                        className="w-100 rounded-4 shadow-4 rotate-lg-6"
-                        alt=""
-                        aria-controls="#picker-editor"
-                        draggable="false"
-                      />{" "}
-                    </div>{" "}
+                    
                   </div>{" "}
                 </div>{" "}
                 {/* Jumbotron */}{" "}
@@ -961,7 +981,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-
+      </div>
     </div>
   )
 }

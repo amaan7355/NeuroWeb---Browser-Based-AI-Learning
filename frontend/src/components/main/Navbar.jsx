@@ -6,7 +6,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
     <a className="navbar-brand fw-bold fs-2" href="#">
-      Trainif-AI
+      <img src="/main_logo.png" alt="" className='' height={"60rem"} />
     </a>
     <button
       className="navbar-toggler"
