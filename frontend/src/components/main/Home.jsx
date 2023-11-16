@@ -31,7 +31,7 @@ const Home = () => {
                       <div className="col-lg-6 mb-5 mb-lg-0 px-4">
                         {" "}
                         <img
-                          src="https://img.freepik.com/premium-photo/robot-with-blue-face-stands-white-background_873925-68088.jpg"
+                          src="https://preview.redd.it/some-verus-pics-reupload-cause-of-bad-quality-android-robot-v0-ol844ruilbwb1.jpg?width=4096&format=pjpg&auto=webp&s=9c1ac9e5bcbe363e9a91de60d396cbd35e1e136a"
                           className="rounded-4 shadow-4 img-fluid"
                           alt=""
                           aria-controls="#picker-editor"
@@ -42,37 +42,37 @@ const Home = () => {
                       </div>{" "}
                       <div className="col-lg-6 mb-5 mb-lg-0">
                         {" "}
-                        
-                          <div className="card-body py-5 px-md-5 shadow-5">
+
+                        <div className="card-body py-5 px-md-5 shadow-5">
+                          {" "}
+                          <h1 className="mb-4 display-5 fw-bold ls-tight">
                             {" "}
-                            <h1 className="mb-4 display-5 fw-bold ls-tight">
-                              {" "}
-                              <span className='text-white'>A Multisensory Experience:</span> <br />{" "}
-                              <span className="" style={{ color: "hsl(220, 81%, 86%)" }}>Images, Audio, Text AI Model Training</span>{" "}
-                            </h1>{" "}
-                            <div className="d-md-flex flex-row">
-                              {" "}
-                              <a
-                                className="btn btn-light btn-lg py-3 px-5 mb-2 me-2 mt-4"
-                                href="#"
-                                role="button"
-                                aria-controls="#picker-editor"
-                                draggable="false"
-                              >
-                                Start Free Trial
-                              </a>{" "}
-                              <a
-                                className="btn btn-link  btn-lg py-3 px-5 mb-2 me-2 mt-4 text-white"
-                                data-ripple-color="success"
-                                href="#"
-                                role="button"
-                                aria-controls="#picker-editor"
-                                draggable="false"
-                              >
-                                Learn more
-                              </a>
-                              {/* Submit button */}{" "}
-                              {/* <button
+                            <span className='text-white'>A Multisensory Experience:</span> <br />{" "}
+                            <span className="" style={{ color: "hsl(220, 81%, 86%)" }}>Images, Audio, Text AI Model Training</span>{" "}
+                          </h1>{" "}
+                          <div className="d-md-flex flex-row">
+                            {" "}
+                            <a
+                              className="btn btn-light btn-lg py-3 px-5 mb-2 me-2 mt-4"
+                              href="#"
+                              role="button"
+                              aria-controls="#picker-editor"
+                              draggable="false"
+                            >
+                              Start Free Trial
+                            </a>{" "}
+                            <a
+                              className="btn btn-link  btn-lg py-3 px-5 mb-2 me-2 mt-4 text-white"
+                              data-ripple-color="success"
+                              href="#"
+                              role="button"
+                              aria-controls="#picker-editor"
+                              draggable="false"
+                            >
+                              Learn more
+                            </a>
+                            {/* Submit button */}{" "}
+                            {/* <button
                               type="submit"
                               className="btn            btn-danger btn-lg ms-md-2"
                               fdprocessedid="r2obga"
@@ -83,7 +83,7 @@ const Home = () => {
                           </div>{" "}
                         </div>{" "}
                       </div>{" "}
-                      
+
                     </div>{" "}
                   </div>{" "}
                   {/* Jumbotron */}{" "}
@@ -123,7 +123,7 @@ const Home = () => {
             <div
               data-draggable="true"
               className=""
-              style={{ position: "relative" }}
+              style={{ position: "relative", marginRight: "" }}
               draggable="false"
             >
               {/**/}
@@ -145,7 +145,7 @@ const Home = () => {
                       <div className="col-lg-6 mb-5 mb-lg-0">
                         {" "}
                         <img
-                          src="https://mdbootstrap.com/img/new/ecommerce/vertical/051.jpg"
+                          src="https://e0.pxfuel.com/wallpapers/459/542/desktop-wallpaper-automation-robot-background-awesome-robot-dinosaur-robot-and-robot-colorful-robot.jpg"
                           className="w-100 rounded-4 shadow-4 rotate2"
                           alt=""
                           aria-controls="#picker-editor"
@@ -155,92 +155,19 @@ const Home = () => {
                       <div className="col-lg-6 mb-5 mb-lg-0">
                         {" "}
                         <div
-                          className="card cascading-right"
-                          style={{
-                            background: "hsla(0, 0%, 100%, 0.55)",
-                            backdropFilter: "blur(30px)",
-                            zIndex: 1
-                          }}
+                          className="card cascading-right background-linear-gradient text-white"
+                        // style={{
+                        //   background: "hsla(0, 0%, 10%, 0)",
+                        //   backdropFilter: "blur(30px)"
+                        // }}
                         >
                           {" "}
-                          <div className="card-body py-5 px-md-5 shadow-5">
+                          <div className="card-body py-4 px-md-5 shadow-5">
                             {" "}
-                            <h2 className="fw-bold mb-4">Why is it so great?</h2>{" "}
-                            <p className="text-muted mb-4">
-                              Nunc tincidunt vulputate elit. Mauris varius purus
-                              malesuada neque iaculis malesuada. Aenean gravida magna
-                              orci, non efficitur est porta id. Donec magna diam.
+                            <h2 className="fw-bold mb-4">Hello!</h2>{" "}
+                            <p className="fs-5 mb-4">
+                              "Welcome to the gateway of AI empowerment - where innovation meets accessibility, and the future of machine learning unfolds at your fingertips. Say hello to a revolutionary platform that defies limitations: a MERN-based wonderland that empowers users to usher in the age of intelligence. Imagine a realm where uploading data triggers a symphony of possibilities, where image, audio, and text classification models await your command, ready to be sculpted into brilliance within your browser. But wait, there's more - this isn't just an online journey; it's a voyage that transcends connectivity barriers, ensuring your AI aspirations flourish even in offline sanctuaries. Join us as we redefine the landscape of AI training, putting the power of cutting-edge technology squarely in your hands, and together, let's sculpt the future of intelligent innovation."
                             </p>{" "}
-                            <div className="row">
-                              {" "}
-                              <div className="col-lg-4 mb-2">
-                                {" "}
-                                <p>
-                                  {" "}
-                                  <i className="fas fa-check text-dark me-2" />
-                                  <span>Support 24/7</span>{" "}
-                                </p>{" "}
-                              </div>{" "}
-                              <div className="col-lg-4 mb-2">
-                                {" "}
-                                <p>
-                                  {" "}
-                                  <i className="fas fa-check text-dark me-2" />
-                                  <span>Analytics</span>{" "}
-                                </p>{" "}
-                              </div>{" "}
-                              <div className="col-lg-4 mb-2">
-                                {" "}
-                                <p>
-                                  {" "}
-                                  <i className="fas fa-check text-dark me-2" />
-                                  <span>Components</span>{" "}
-                                </p>{" "}
-                              </div>{" "}
-                              <div className="col-lg-4 mb-2">
-                                {" "}
-                                <p>
-                                  <i className="fas fa-check text-dark me-2" />
-                                  <span>Updates</span>
-                                </p>{" "}
-                              </div>{" "}
-                              <div className="col-lg-4 mb-2">
-                                {" "}
-                                <p>
-                                  <i className="fas fa-check text-dark me-2" />
-                                  <span>Reports</span>
-                                </p>{" "}
-                              </div>{" "}
-                              <div className="col-lg-4 mb-2">
-                                {" "}
-                                <p>
-                                  <i className="fas fa-check text-dark me-2" />
-                                  <span>Mobile</span>
-                                </p>{" "}
-                              </div>{" "}
-                              <div className="col-lg-4 mb-2">
-                                {" "}
-                                <p>
-                                  <i className="fas fa-check text-dark me-2" />
-                                  <span>Modules</span>
-                                </p>{" "}
-                              </div>{" "}
-                              <div className="col-lg-4 mb-2">
-                                {" "}
-                                <p>
-                                  <i className="fas fa-check text-dark me-2" />
-                                  <span>Blocks</span>
-                                </p>{" "}
-                              </div>{" "}
-                              <div className="col-lg-4 mb-2">
-                                {" "}
-                                <p>
-                                  {" "}
-                                  <i className="fas fa-check text-dark me-2" />
-                                  <span>Templates</span>{" "}
-                                </p>{" "}
-                              </div>{" "}
-                            </div>{" "}
                           </div>{" "}
                         </div>{" "}
                       </div>{" "}
@@ -253,60 +180,53 @@ const Home = () => {
               {/**/}
             </div>
 
-            <div
-              data-draggable="true"
-              className=""
-              style={{ position: "relative" }}
-              draggable="false"
-            >
+            <div data-draggable="true" className="" style={{ position: "relative" }}>
               {/**/}
               {/**/}
               <section draggable="false" className="container pt-5" data-v-271253ee="">
                 <section className="mb-10 text-center text-lg-start">
-                  {" "}
-                  <div className="px-4 py-5 px-md-5">
-                    {" "}
-                    <div className="row gx-lg-5 align-items-center">
-                      {" "}
+                  <style
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        "\n              .cascading-right {\n                margin-right: -50px;\n              }\n\n              @media (max-width: 991.98px) {\n                .cascading-right {\n                  margin-right: 0;\n                }\n              }\n            "
+                    }}
+                  />{" "}
+                  {/* Jumbotron */}
+                  <div className="container py-4">
+                    <div className="row g-0 align-items-center">
                       <div className="col-lg-6 mb-5 mb-lg-0">
-                        {" "}
-                        <h2 className="my-5 display-5 fw-bold ls-tight">
-                          {" "}
-                          <span>Are you ready</span> <br />{" "}
-                          <span className="text-success">for an adventure?</span>{" "}
-                        </h2>{" "}
-                        <a
-                          className="btn       btn-success btn-lg py-3 px-5 mb-2 me-2"
-                          href="#"
-                          role="button"
-                          aria-controls="#picker-editor"
-                          draggable="false"
+                        <div
+                          className="card cascading-right"
+                          style={{
+                            background: "hsla(0, 0%, 100%, 0.88)",
+                            backdropFilter: "blur(30px)"
+                          }}
                         >
-                          Get started
-                        </a>{" "}
-                        <a
-                          className="btn       btn-link text-success btn-lg py-3 px-5 mb-2 me-2"
-                          data-ripple-color="success"
-                          href="#"
-                          role="button"
-                          aria-controls="#picker-editor"
-                          draggable="false"
-                        >
-                          Learn more
-                        </a>{" "}
-                      </div>{" "}
+                          <div className="card-body py-5 px-md-5 shadow-5">
+                            <h2 className="fw-bold mb-4">"Next-Gen AI Exploration: Journeying Beyond Conventional Limits"</h2>
+                            <h4 className=" mb-4">
+                              Empowerment Through Exploration!
+                            </h4>
+                            <p className="mb-0 lead">
+                              Embark on a transformative journey into the realm of AI exploration, where conventional boundaries dissolve, and innovation knows no limits. This project represents a pioneering leap, transcending the traditional paradigms of AI model development. It’s an ode to evolution, offering a gateway to unprecedented possibilities for both novices and seasoned developers. <br />
+                              This isn’t just about AI model training; it’s a testament to empowerment. With in-browser training capabilities fueled by cutting-edge technologies, users experience a revolution. They immerse themselves in the nuances of image, audio, and text classification, navigating the intricacies of AI development within the very confines of their browsers. <br />
+                              Step into the world of "Next-Gen AI Exploration," where the ordinary is forsaken, and the extraordinary becomes the norm. It’s an invitation to embark on a voyage where innovation knows no boundaries and where the future of AI development is redefined, one line of code at a time.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                       <div className="col-lg-6 mb-5 mb-lg-0">
                         {" "}
                         <img
-                          src="https://img.freepik.com/premium-photo/worker-robots-working-office-staring_853932-507.jpg"
-                          className="w-100 rounded-4 shadow-5"
+                          src="https://wallpapercosmos.com/w/full/0/6/2/1143397-1500x2000-mobile-hd-robot-wallpaper-photo.jpg"
+                          className="w-100 rounded-4 shadow-4"
                           alt=""
                           aria-controls="#picker-editor"
-                          draggable="false"
                         />{" "}
-                      </div>{" "}
-                    </div>{" "}
+                      </div>
+                    </div>
                   </div>{" "}
+                  {/* Jumbotron */}
                 </section>
               </section>
               {/**/}
@@ -333,6 +253,17 @@ const Home = () => {
                     {" "}
                     <div className="row g-0 align-items-center">
                       {" "}
+
+                      <div className="col-lg-6 mb-5 mb-lg-0">
+                        {" "}
+                        <img
+                          src="https://iphoneswallpapers.com/wp-content/uploads/2023/08/Ai-Robot-iPhone-Wallpaper-4K.jpg"
+                          className="w-100 shadow-4 rotate-lg-4 fancy-border-radius"
+                          alt=""
+                          aria-controls="#picker-editor"
+                          draggable="false"
+                        />{" "}
+                      </div>{" "}
                       <div className="col-lg-6 mb-5 mb-lg-0">
                         {" "}
                         <div
@@ -344,47 +275,35 @@ const Home = () => {
                           }}
                         >
                           {" "}
-                          <div className="card-body px-4 py-5 p-md-5 shadow-5">
+                          <div className="card-body px-4 py-4 p-md-5 shadow-5 background-linear-gradient text-white">
                             {" "}
                             <h2 className="fw-bold mb-4 display-5">
                               Why is it so great?
-                            </h2>{" "}
-                            <p className="text-muted mb-5">
-                              Nunc tincidunt vulputate elit. Mauris varius purus
-                              malesuada neque iaculis malesuada. Aenean gravida magna
-                              orci, non efficitur est porta id. Donec magna diam.
-                            </p>{" "}
-                            <div className="row">
-                              {" "}
-                              <div className="col-md-4 mb-5 mb-md-0">
-                                {" "}
-                                <h2 className="fw-bold text-dark mb-3">10%</h2>{" "}
-                                <h5 className="text-muted mb-0">Less sugar</h5>{" "}
-                              </div>{" "}
-                              <div className="col-md-4 mb-5 mb-md-0">
-                                {" "}
-                                <h2 className="fw-bold text-dark mb-3">70%</h2>{" "}
-                                <h5 className="text-muted mb-0">More flavor</h5>{" "}
-                              </div>{" "}
-                              <div className="col-md-4">
-                                {" "}
-                                <h2 className="fw-bold text-dark mb-3">0%</h2>{" "}
-                                <h5 className="text-muted mb-0">Gluten</h5>{" "}
-                              </div>{" "}
-                            </div>{" "}
+                            </h2>
+                            <h4 className='fw-bold'><i class="fa-solid fa-circle-check"></i> Accessibility and Convenience</h4>
+                            <p className=" mb-3">
+                              Enabling users to upload data and train AI models directly on a website is incredibly convenient. It eliminates the need for complex software installations or the expertise required to set up such systems, making AI training accessible to a broader audience.
+                            </p>
+                            <h4 className='fw-bold'><i class="fa-solid fa-circle-check"></i> Empowering Users</h4>
+                            <p className=" mb-3">
+                              By offering image, audio, and text classification models, your project empowers users with a diverse set of AI tools. This versatility allows them to address various use cases and industries, from content moderation to sentiment analysis and beyond.
+                            </p>
+                            <h4 className='fw-bold'><i class="fa-solid fa-circle-check"></i> In-Browser Training</h4>
+                            <p className=" mb-3">
+                              The ability to train models in-browser is a game-changer. It leverages the user's system resources efficiently and doesn't require constant internet connectivity. This feature ensures data privacy and allows users to work seamlessly even in offline environments.
+                            </p>
+                            <h4 className='fw-bold'><i class="fa-solid fa-circle-check"></i> Offline Functionalitye</h4>
+                            <p className="mb-3">
+                              The capability to function offline sets your project apart. Users don't always have continuous internet access, and this feature ensures uninterrupted productivity. It also enhances security by keeping sensitive data within the user's control.
+                            </p>
+                            <h4 className='fw-bold'><i class="fa-solid fa-circle-check"></i> Community Impact</h4>
+                            <p className="mb-3">
+                              Enabling users to train AI models easily could have a significant impact on communities, especially in areas with limited resources or technological access. It democratizes AI, potentially fostering innovation and problem-solving in various regions and fields.</p>
+
                           </div>{" "}
                         </div>{" "}
                       </div>{" "}
-                      <div className="col-lg-6 mb-5 mb-lg-0">
-                        {" "}
-                        <img
-                          src="https://mdbootstrap.com/img/new/ecommerce/vertical/088.jpg"
-                          className="w-100 shadow-4 rotate-lg-6 fancy-border-radius"
-                          alt=""
-                          aria-controls="#picker-editor"
-                          draggable="false"
-                        />{" "}
-                      </div>{" "}
+
                     </div>{" "}
                   </div>{" "}
                   {/* Jumbotron */}{" "}
@@ -392,103 +311,10 @@ const Home = () => {
               </section>
               {/**/}
             </div>
-            <div
-              data-draggable="true"
-              className=""
-              style={{ position: "relative" }}
-              draggable="false"
-            >
-              {/**/}
-              {/**/}
-              <section draggable="false" className="container pt-5" data-v-271253ee="">
-                <section className="mb-10">
-                  {" "}
-                  <style
-                    dangerouslySetInnerHTML={{
-                      __html:
-                        " @media (min-width: 992px) { #cta-img-nml-50 { margin-left: 50px; } } "
-                    }}
-                  />{" "}
-                  <div className="row gx-0">
-                    {" "}
-                    <div className="col-lg-5 mb-4 mb-md-0">
-                      {" "}
-                      <div className="d-flex py-md-5">
-                        {" "}
-                        <img
-                          src="https://mdbootstrap.com/img/new/standard/people/058.jpg"
-                          className="w-100 rounded-5 shadow-3-strong"
-                          id="cta-img-nml-50"
-                          style={{ zIndex: 10 }}
-                          alt=""
-                          aria-controls="#picker-editor"
-                          draggable="false"
-                        />{" "}
-                      </div>{" "}
-                    </div>{" "}
-                    <div className="col-lg-7 mb-4 mb-md-0">
-                      {" "}
-                      <div className="bg-warning h-100 rounded-6 p-4 ps-lg-5 text-white d-flex align-items-center">
-                        {" "}
-                        <div className="ps-lg-5">
-                          {" "}
-                          <h2 className="fw-bold mb-4">Let it surprise you</h2>{" "}
-                          <p className="">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                            Maxime, sint, repellat vel quo quisquam accusamus in qui at
-                            ipsa enim quibusdam illo laboriosam omnis. Labore itaque
-                            illum distinctio eum neque!
-                          </p>{" "}
-                          <div className="row mb-2">
-                            {" "}
-                            <div className="col-lg-4">
-                              {" "}
-                              <p>
-                                <i className="fas fa-check-circle me-2" />
-                                <span>Best team</span>
-                              </p>{" "}
-                            </div>{" "}
-                            <div className="col-lg-4">
-                              {" "}
-                              <p>
-                                <i className="fas fa-check-circle me-2" />
-                                <span>Best quality</span>
-                              </p>{" "}
-                            </div>{" "}
-                            <div className="col-lg-4">
-                              {" "}
-                              <p>
-                                {" "}
-                                <i className="fas fa-check-circle me-2" />
-                                <span>Best experience</span>{" "}
-                              </p>{" "}
-                            </div>{" "}
-                          </div>{" "}
-                          <p>
-                            Duis sagittis, turpis in ullamcorper venenatis, ligula nibh
-                            porta dui, sit amet rutrum enim massa in ante. Curabitur in
-                            justo at lorem laoreet ultricies. Nunc ligula felis,
-                            sagittis eget nisi vitae, sodales vestibulum purus.
-                            Vestibulum nibh ipsum, rhoncus vel sagittis nec, placerat
-                            vel justo. Duis faucibus sapien eget tortor finibus, a
-                            eleifend lectus dictum. Cras tempor convallis magna id
-                            rhoncus. Suspendisse potenti. Nam mattis faucibus imperdiet.
-                            Proin tempor lorem at neque tempus aliquet. Phasellus at ex
-                            volutpat, varius arcu id, aliquam lectus. Vestibulum mattis
-                            felis quis ex pharetra luctus. Etiam luctus sagittis massa,
-                            sed iaculis est vehicula ut.
-                          </p>{" "}
-                        </div>{" "}
-                      </div>{" "}
-                    </div>{" "}
-                  </div>{" "}
-                </section>
-              </section>
-              {/**/}
-            </div>
 
-            
-            
+
+
+
             <div
               data-draggable="true"
               className=""
@@ -498,12 +324,12 @@ const Home = () => {
               {/**/}
               {/**/}
               <section draggable="false" className="container pt-5" data-v-271253ee="">
-                <section className="mb-10">
+                <section className="mb-5 background-linear-gradient p-2">
                   {" "}
                   <style
                     dangerouslySetInnerHTML={{
                       __html:
-                        " #pricing-block-5 { height: 300px; padding-top: 55px; } @media (min-width: 992px) { #pricing-block-5 { height: 400px; padding-top: 80px; } } .background-radial-gradient { background-color: hsl(218, 41%, 15%); background-image: radial-gradient( 650px circle at 0% 0%, hsl(218, 41%, 35%) 15%, hsl(218, 41%, 30%) 35%, hsl(218, 41%, 20%) 75%, hsl(218, 41%, 19%) 80%, transparent 100% ), radial-gradient( 1250px circle at 100% 100%, hsl(218, 41%, 45%) 15%, hsl(218, 41%, 30%) 35%, hsl(218, 41%, 20%) 75%, hsl(218, 41%, 19%) 80%, transparent 100% ); } @media (min-width: 992px) { .rounded-lg-top-end { border-top-right-radius: 0; } .rounded-lg-bottom-end { border-bottom-right-radius: 0; } .rounded-lg-top-start { border-top-left-radius: 0; } .rounded-lg-bottom-start { border-bottom-left-radius: 0; } } "
+                        " #pricing-block-5 { height: 300px; padding-top: 55px; } @media (min-width: 992px) { #pricing-block-5 { height: 400px; padding-top: 80px; } } } @media (min-width: 992px) { .rounded-lg-top-end { border-top-right-radius: 0; } .rounded-lg-bottom-end { border-bottom-right-radius: 0; } .rounded-lg-top-start { border-top-left-radius: 0; } .rounded-lg-bottom-start { border-bottom-left-radius: 0; } } "
                     }}
                   />{" "}
                   <div
@@ -698,7 +524,7 @@ const Home = () => {
               </section>
               {/**/}
             </div>
-             
+
           </div>
         </div>
 
@@ -820,142 +646,142 @@ const Home = () => {
         </section>
 
         <div
-              data-draggable="true"
-              className=""
-              style={{ position: "relative" }}
-              draggable="false"
-            >
-              {/**/}
-              {/**/}
-              <section draggable="false" className="container pt-5" data-v-271253ee="">
-                <section className="mb-10 text-center">
+          data-draggable="true"
+          className=""
+          style={{ position: "relative" }}
+          draggable="false"
+        >
+          {/**/}
+          {/**/}
+          <section draggable="false" className="container pt-5" data-v-271253ee="">
+            <section className="mb-10 text-center">
+              {" "}
+              <style
+                dangerouslySetInnerHTML={{
+                  __html: " .grayscale { filter: grayscale(100%); } "
+                }}
+              />{" "}
+              <h2 className="fw-bold mb-5">
+                {" "}
+                <span>Trusted by</span>
+                <u className="mx-2">2,000,000+</u>
+                <span>users</span>{" "}
+              </h2>{" "}
+              <div className="row mb-4">
+                {" "}
+                <div className="col-lg-3 col-6 mb-5 mb-lg-0">
                   {" "}
-                  <style
-                    dangerouslySetInnerHTML={{
-                      __html: " .grayscale { filter: grayscale(100%); } "
-                    }}
+                  <img
+                    src="https://mdbootstrap.com/img/Photos/new-templates/landing-page/2.png"
+                    className="img-fluid grayscale px-4 px-md-5"
+                    alt=""
+                    aria-controls="#picker-editor"
+                    draggable="false"
                   />{" "}
-                  <h2 className="fw-bold mb-5">
-                    {" "}
-                    <span>Trusted by</span>
-                    <u className="mx-2">2,000,000+</u>
-                    <span>users</span>{" "}
-                  </h2>{" "}
-                  <div className="row mb-4">
-                    {" "}
-                    <div className="col-lg-3 col-6 mb-5 mb-lg-0">
-                      {" "}
-                      <img
-                        src="https://mdbootstrap.com/img/Photos/new-templates/landing-page/2.png"
-                        className="img-fluid grayscale px-4 px-md-5"
-                        alt=""
-                        aria-controls="#picker-editor"
-                        draggable="false"
-                      />{" "}
-                    </div>{" "}
-                    <div className="col-lg-3 col-6 mb-5 mb-lg-0">
-                      {" "}
-                      <img
-                        src="https://mdbootstrap.com/img/Photos/new-templates/landing-page/1.png"
-                        className="img-fluid grayscale px-4 px-md-5"
-                        alt=""
-                        aria-controls="#picker-editor"
-                        draggable="false"
-                      />{" "}
-                    </div>{" "}
-                    <div className="col-lg-3 col-6 mb-5 mb-lg-0">
-                      {" "}
-                      <img
-                        src="https://mdbootstrap.com/img/Photos/new-templates/landing-page/3.png"
-                        className="img-fluid grayscale px-4 px-md-5"
-                        alt=""
-                        aria-controls="#picker-editor"
-                        draggable="false"
-                      />{" "}
-                    </div>{" "}
-                    <div className="col-lg-3 col-6 mb-5 mb-lg-0">
-                      {" "}
-                      <img
-                        src="https://mdbootstrap.com/img/Photos/new-templates/landing-page/4.png"
-                        className="img-fluid grayscale px-4 px-md-5"
-                        alt=""
-                        aria-controls="#picker-editor"
-                        draggable="false"
-                      />{" "}
-                    </div>{" "}
-                  </div>{" "}
-                </section>
-              </section>
-              {/**/}
-            </div>
+                </div>{" "}
+                <div className="col-lg-3 col-6 mb-5 mb-lg-0">
+                  {" "}
+                  <img
+                    src="https://mdbootstrap.com/img/Photos/new-templates/landing-page/1.png"
+                    className="img-fluid grayscale px-4 px-md-5"
+                    alt=""
+                    aria-controls="#picker-editor"
+                    draggable="false"
+                  />{" "}
+                </div>{" "}
+                <div className="col-lg-3 col-6 mb-5 mb-lg-0">
+                  {" "}
+                  <img
+                    src="https://mdbootstrap.com/img/Photos/new-templates/landing-page/3.png"
+                    className="img-fluid grayscale px-4 px-md-5"
+                    alt=""
+                    aria-controls="#picker-editor"
+                    draggable="false"
+                  />{" "}
+                </div>{" "}
+                <div className="col-lg-3 col-6 mb-5 mb-lg-0">
+                  {" "}
+                  <img
+                    src="https://mdbootstrap.com/img/Photos/new-templates/landing-page/4.png"
+                    className="img-fluid grayscale px-4 px-md-5"
+                    alt=""
+                    aria-controls="#picker-editor"
+                    draggable="false"
+                  />{" "}
+                </div>{" "}
+              </div>{" "}
+            </section>
+          </section>
+          {/**/}
+        </div>
 
-            <div
-              data-draggable="true"
-              className="mb-5"
-              style={{ position: "relative" }}
-              draggable="false"
-            >
-              {/**/}
-              {/**/}
-              <section draggable="false" className="container pt-5" data-v-271253ee="">
-                <section className="mb-10 text-center">
+        <div
+          data-draggable="true"
+          className="mb-5"
+          style={{ position: "relative" }}
+          draggable="false"
+        >
+          {/**/}
+          {/**/}
+          <section draggable="false" className="container pt-5" data-v-271253ee="">
+            <section className="mb-10 text-center">
+              {" "}
+              <style
+                dangerouslySetInnerHTML={{
+                  __html:
+                    " hr.divider-vertical { position: absolute; right: 0; top: 0; width: 1px; background-image: linear-gradient( 180deg, transparent, hsl(0, 0%, 40%), transparent ); background-color: transparent; height: 100%; } "
+                }}
+              />{" "}
+              <div className="row">
+                {" "}
+                <div className="col-lg-3 col-md-6 mb-5 mb-lg-0 position-relative">
                   {" "}
-                  <style
-                    dangerouslySetInnerHTML={{
-                      __html:
-                        " hr.divider-vertical { position: absolute; right: 0; top: 0; width: 1px; background-image: linear-gradient( 180deg, transparent, hsl(0, 0%, 40%), transparent ); background-color: transparent; height: 100%; } "
-                    }}
+                  <i
+                    className="fas fa-cubes fa-3x text-primary mb-4"
+                    aria-controls="#picker-editor"
                   />{" "}
-                  <div className="row">
-                    {" "}
-                    <div className="col-lg-3 col-md-6 mb-5 mb-lg-0 position-relative">
-                      {" "}
-                      <i
-                        className="fas fa-cubes fa-3x text-primary mb-4"
-                        aria-controls="#picker-editor"
-                      />{" "}
-                      <h5 className="text-primary fw-bold mb-3">5000+</h5>{" "}
-                      <h6 className="fw-normal mb-0">Components</h6>{" "}
-                      <hr className="divider-vertical d-none d-md-block" />{" "}
-                    </div>{" "}
-                    <div className="col-lg-3 col-md-6 mb-5 mb-lg-0 position-relative">
-                      {" "}
-                      <i
-                        className="fas fa-layer-group fa-3x text-primary mb-4"
-                        aria-controls="#picker-editor"
-                      />{" "}
-                      <h5 className="text-primary fw-bold mb-3">490+</h5>{" "}
-                      <h6 className="fw-normal mb-0">Design blocks</h6>{" "}
-                      <hr className="divider-vertical d-none d-lg-block" />{" "}
-                    </div>{" "}
-                    <div className="col-lg-3 col-md-6 mb-5 mb-lg-0 position-relative">
-                      {" "}
-                      <i
-                        className="fas fa-image fa-3x text-primary mb-4"
-                        aria-controls="#picker-editor"
-                      />{" "}
-                      <h5 className="text-primary fw-bold mb-3">100+</h5>{" "}
-                      <h6 className="fw-normal mb-0">Templates</h6>{" "}
-                      <hr className="divider-vertical d-none d-md-block" />{" "}
-                    </div>{" "}
-                    <div className="col-lg-3 col-md-6 mb-4 mb-lg-0 position-relative">
-                      {" "}
-                      <i
-                        className="fas fa-plug fa-3x text-primary mb-4"
-                        aria-controls="#picker-editor"
-                      />{" "}
-                      <h5 className="text-primary fw-bold mb-3">28</h5>{" "}
-                      <h6 className="fw-normal mb-0">Plugins</h6>{" "}
-                    </div>{" "}
-                  </div>{" "}
-                </section>
-              </section>
-              {/**/}
-            </div>
+                  <h5 className="text-primary fw-bold mb-3">5000+</h5>{" "}
+                  <h6 className="fw-normal mb-0">Components</h6>{" "}
+                  <hr className="divider-vertical d-none d-md-block" />{" "}
+                </div>{" "}
+                <div className="col-lg-3 col-md-6 mb-5 mb-lg-0 position-relative">
+                  {" "}
+                  <i
+                    className="fas fa-layer-group fa-3x text-primary mb-4"
+                    aria-controls="#picker-editor"
+                  />{" "}
+                  <h5 className="text-primary fw-bold mb-3">490+</h5>{" "}
+                  <h6 className="fw-normal mb-0">Design blocks</h6>{" "}
+                  <hr className="divider-vertical d-none d-lg-block" />{" "}
+                </div>{" "}
+                <div className="col-lg-3 col-md-6 mb-5 mb-lg-0 position-relative">
+                  {" "}
+                  <i
+                    className="fas fa-image fa-3x text-primary mb-4"
+                    aria-controls="#picker-editor"
+                  />{" "}
+                  <h5 className="text-primary fw-bold mb-3">100+</h5>{" "}
+                  <h6 className="fw-normal mb-0">Templates</h6>{" "}
+                  <hr className="divider-vertical d-none d-md-block" />{" "}
+                </div>{" "}
+                <div className="col-lg-3 col-md-6 mb-4 mb-lg-0 position-relative">
+                  {" "}
+                  <i
+                    className="fas fa-plug fa-3x text-primary mb-4"
+                    aria-controls="#picker-editor"
+                  />{" "}
+                  <h5 className="text-primary fw-bold mb-3">28</h5>{" "}
+                  <h6 className="fw-normal mb-0">Plugins</h6>{" "}
+                </div>{" "}
+              </div>{" "}
+            </section>
+          </section>
+          {/**/}
+        </div>
 
 
         {/* Footer */}
-        <footer className="text-center text-lg-start bg-light text-muted">
+        <footer className="text-center text-lg-start background-linear-gradient text-white">
           {/* Section: Social media */}
           <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             {/* Left */}
@@ -997,7 +823,7 @@ const Home = () => {
                   {/* Content */}
                   <h6 className="text-uppercase fw-bold mb-4">
                     <i className="fas fa-gem me-3" />
-                    Company name
+                    Trainifai
                   </h6>
                   <p>
                     Here you can use rows and columns to organize your footer content.
@@ -1086,9 +912,9 @@ const Home = () => {
             className="text-center p-4"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
           >
-            © 2021 Copyright:
-            <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-              MDBootstrap.com
+            © 2023 Copyright:
+            <a className="text-white fw-bold ms-3" href="">
+              TrainifAI
             </a>
           </div>
           {/* Copyright */}
