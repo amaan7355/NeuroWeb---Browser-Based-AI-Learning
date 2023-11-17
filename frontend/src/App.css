@@ -52,3 +52,12 @@
     background: rgb(81,74,196);
     background: linear-gradient(120deg, rgba(81,74,196,1) 24%, rgba(21,18,153,1) 42%, rgba(21,18,153,1) 60%, rgba(81,74,196,1) 84%);
   }
+
+  .button-search{
+    border: 1px solid rgb(81,74,196);;
+  }
+
+  .button-search:hover {
+    background-color: rgba(81,74,196,1);
+    color: white;
+  }

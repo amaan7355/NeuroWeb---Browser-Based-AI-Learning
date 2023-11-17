@@ -7,6 +7,7 @@ import Profile from './components/user/Profile';
 import SignUp from './components/main/SignUp';
 import { AppProvider } from './Context/AppContext';
 import { SnackbarProvider, enqueueSnackbar } from 'notistack';
+import Aboutus from './components/main/Aboutus';
 
 function App() {
 
@@ -17,7 +18,8 @@ function App() {
       <AppProvider>
         <Routes>
             <Route path='main' element={<Main />} >
-              <Route path='home' element={<Home />} /> 
+              <Route path='home' element={<Home />} />
+              <Route path='aboutus' element={<Aboutus />} /> 
               <Route path='signup' element={<SignUp />} /> 
             </Route>
 
