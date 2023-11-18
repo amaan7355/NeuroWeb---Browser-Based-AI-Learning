@@ -24,32 +24,25 @@ const Home = () => {
                         " @media (min-width: 992px) { .cascading-right { margin-right: -50px; } .rotate-lg-6 { transform: rotate(3deg); } } "
                     }} */}
                   {/* Jumbotron */}{" "}
-                  <div className="container py-4">
+                  <div className="container py-3">
                     {" "}
                     <div className="row g-0 align-items-center">
                       {" "}
                       <div className="col-lg-6 mb-5 mb-lg-0 px-4">
                         {" "}
-                        <img
-                          src="https://preview.redd.it/some-verus-pics-reupload-cause-of-bad-quality-android-robot-v0-ol844ruilbwb1.jpg?width=4096&format=pjpg&auto=webp&s=9c1ac9e5bcbe363e9a91de60d396cbd35e1e136a"
-                          className="rounded-4 shadow-4 img-fluid"
-                          alt=""
-                          aria-controls="#picker-editor"
-                          draggable="false"
-                          height={"400rem"}
-                          width={"550rem"}
-                        />{" "}
+                        <video height={"400rem"} width={"550rem"} className='rounded-4 img-fluid' autoplay>
+                          <source src='/home_video.mp4' type="video/mp4"></source>
+                        </video>
+
                       </div>{" "}
                       <div className="col-lg-6 mb-5 mb-lg-0">
                         {" "}
 
-                        <div className="card-body py-5 px-md-5 shadow-5">
+                        <div className="card-body py-3 px-md-5 shadow-5">
                           {" "}
-                          <h1 className="mb-4 display-5 fw-bold ls-tight">
-                            {" "}
-                            <span className='text-white'>A Multisensory Experience:</span> <br />{" "}
-                            <span className="" style={{ color: "hsl(220, 81%, 86%)" }}>Images, Audio, Text AI Model Training</span>{" "}
-                          </h1>{" "}
+                          <h1 className='text-white display-5 fw-bold'>A Multisensory Experience:</h1> <br />{" "}
+                          <h2 className="display-6 fw-bold mb-4" style={{ color: "hsl(220, 81%, 86%)" }}>Images, Audio, Text AI Model Training</h2>{" "}
+                          <h3 className='text-white mb-4 display-7 fw-bold ls-tight'>"Personalize Your AI: Educate Your System on Images, Sounds, and Texts"</h3>
                           <div className="d-md-flex flex-row">
                             {" "}
                             <a
@@ -91,6 +84,8 @@ const Home = () => {
               </section>
               {/**/}
             </div>
+
+
             <div
               data-draggable="true"
               className=""
@@ -120,6 +115,8 @@ const Home = () => {
               </section>
               {/**/}
             </div>
+
+
             <div
               data-draggable="true"
               className=""
@@ -180,10 +177,35 @@ const Home = () => {
               {/**/}
             </div>
 
-            
-            
-
-
+            <div
+              data-draggable="true"
+              className=""
+              style={{ position: "relative" }}
+              draggable="false"
+            >
+              {/**/}
+              {/**/}
+              <section draggable="false" className="container pt-5" data-v-271253ee="">
+                <section className="mb-10 text-center">
+                  {" "}
+                  <div className="row d-flex justify-content-center">
+                    {" "}
+                    <div className="col-lg-8">
+                      {" "}
+                      <h2 className="mb-4 display-3 fw-bold ls-tight">
+                        {" "}
+                        <span>What is TrainifAI?</span> <br />{" "}
+                        <span className="text-primary"></span>{" "}
+                      </h2>{" "}
+                      <p className="text-muted lead fs-3">
+                        "TrainifAI is an innovative MERN-based platform revolutionizing AI training. It enables users to upload diverse datasets effortlessly via a website interface and trains image, audio, and text classification models directly within their browser. The platform's standout feature lies in its offline functionality, ensuring uninterrupted model training, even without an internet connection. With TrainifAI, users experience a seamless and accessible way to develop AI models at their convenience."
+                      </p>{" "}
+                    </div>{" "}
+                  </div>{" "}
+                </section>
+              </section>
+              {/**/}
+            </div>
 
 
             <div
