@@ -8,6 +8,7 @@ import SignUp from './components/main/SignUp';
 import { AppProvider } from './Context/AppContext';
 import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 import Aboutus from './components/main/Aboutus';
+import AudioClassifier from './components/user/AudioClassifier';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
 
             <Route path='user' element={<User />} >
               <Route path='profile' element={<Profile />} />
+              <Route path='audioclassifier' element={<AudioClassifier />} />
             </Route>
             
         </Routes>

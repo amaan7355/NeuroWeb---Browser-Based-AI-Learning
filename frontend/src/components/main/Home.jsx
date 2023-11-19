@@ -30,8 +30,7 @@ const Home = () => {
                       {" "}
                       <div className="col-lg-6 mb-5 mb-lg-0 px-4">
                         {" "}
-                        <video height={"400rem"} width={"550rem"} className='rounded-4 img-fluid' autoplay>
-                          <source src='/home_video.mp4' type="video/mp4"></source>
+                        <video src='/home_video.mp4' height={"400rem"} width={"550rem"} className='rounded-4 img-fluid' autoPlay muted>
                         </video>
 
                       </div>{" "}
@@ -206,6 +205,142 @@ const Home = () => {
               </section>
               {/**/}
             </div>
+
+            <div className='container my-4'>
+              <h2 className="mb-4 display-3 fw-bold ls-tight text-center my-5">
+                <span>What Model Training we offer?</span> <br />
+                <span className="text-primary"></span>
+              </h2>
+              <div className="row row-cols-1 row-cols-md-3 g-4 my-4 p-3">
+                <div className="col">
+                  <div className="card h-100" style={{border: "none"}}>
+                    <img
+                      src="/image_classifier.gif"
+                      className="card-img-top"
+                      alt="Skyscrapers"
+                      height={"280rem"}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title fw-bold">Image Classification Model Training</h5>
+                      <p className="card-text">
+                        Training an image classification model entails exposing it to labeled images, enabling the network to learn distinct visual features and patterns to accurately classify new, unseen images.
+                      </p>
+                    </div>
+                    {/* <div className="card-footer">
+                      <small className="text-muted">Last updated 3 mins ago</small>
+                    </div> */}
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="card h-100" style={{border: "none"}}>
+                    <img
+                      src="/audio_classifier.gif"
+                      className="card-img-top"
+                      alt="Los Angeles Skyscrapers"
+                      height={"280rem"}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title fw-bold">Audio Classification Model Training</h5>
+                      <p className="card-text">
+                        Audio classification model training entails exposing a neural network to labeled sound data, enabling it to learn distinctive features and patterns for accurate categorization of audio inputs.
+                      </p>
+                    </div>
+                    {/* <div className="card-footer">
+                      <small className="text-muted">Last updated 3 mins ago</small>
+                    </div> */}
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="card h-100" style={{border: "none"}}>
+                    <img
+                      src="/text_classifier.gif"
+                      className="card-img-top"
+                      alt="Palm Springs Road"
+                      height={"280rem"}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title fw-bold">Text Classification Model Training</h5>
+                      <p className="card-text">
+                        Text classification model training teaches a neural network to categorize text by learning patterns from labeled data, aiding tasks like sentiment analysis or topic identification.
+                      </p>
+                    </div>
+                    {/* <div className="card-footer">
+                      <small className="text-muted">Last updated 3 mins ago</small>
+                    </div> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div className='container my-4'>
+              <h2 className="mb-4 display-3 fw-bold ls-tight text-center my-5">
+                <span>Steps to Train a Classification Model!</span> <br />
+                <span className="text-primary"></span>
+              </h2>
+              <div className="row row-cols-1 row-cols-md-3 g-4 my-4 p-3">
+                <div className="col">
+                  <div className="card h-100" style={{border: "none"}}>
+                    <img
+                      src="https://velog.velcdn.com/images/dyparkkk/post/b63de2a8-274d-4a92-a661-6204c32f30e2/image.png"
+                      className="card-img-top"
+                      alt="Skyscrapers"
+                      height={"280rem"}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title fw-bold">Image Classification Model Training</h5>
+                      <p className="card-text">
+                        Training an image classification model entails exposing it to labeled images, enabling the network to learn distinct visual features and patterns to accurately classify new, unseen images.
+                      </p>
+                    </div>
+                    {/* <div className="card-footer">
+                      <small className="text-muted">Last updated 3 mins ago</small>
+                    </div> */}
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="card h-100" style={{border: "none"}}>
+                    <img
+                      src="/audio_classifier.gif"
+                      className="card-img-top"
+                      alt="Los Angeles Skyscrapers"
+                      height={"280rem"}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title fw-bold">Audio Classification Model Training</h5>
+                      <p className="card-text">
+                        Audio classification model training entails exposing a neural network to labeled sound data, enabling it to learn distinctive features and patterns for accurate categorization of audio inputs.
+                      </p>
+                    </div>
+                    {/* <div className="card-footer">
+                      <small className="text-muted">Last updated 3 mins ago</small>
+                    </div> */}
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="card h-100" style={{border: "none"}}>
+                    <img
+                      src="/text_classifier.gif"
+                      className="card-img-top"
+                      alt="Palm Springs Road"
+                      height={"280rem"}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title fw-bold">Text Classification Model Training</h5>
+                      <p className="card-text">
+                        Text classification model training teaches a neural network to categorize text by learning patterns from labeled data, aiding tasks like sentiment analysis or topic identification.
+                      </p>
+                    </div>
+                    {/* <div className="card-footer">
+                      <small className="text-muted">Last updated 3 mins ago</small>
+                    </div> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            
 
 
             <div
