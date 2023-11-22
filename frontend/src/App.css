@@ -61,3 +61,14 @@
     background-color: rgba(81,74,196,1);
     color: white;
   }
+
+  .train{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3rem;
+  }
+
+  .Montserrat{
+    font-family: Montserrat;
+  }

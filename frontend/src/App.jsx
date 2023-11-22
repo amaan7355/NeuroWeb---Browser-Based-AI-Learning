@@ -9,6 +9,7 @@ import { AppProvider } from './Context/AppContext';
 import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 import Aboutus from './components/main/Aboutus';
 import AudioClassifier from './components/user/AudioClassifier';
+import TrainModel from './components/main/TrainModel';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Routes>
             <Route path='main' element={<Main />} >
               <Route path='home' element={<Home />} />
+              <Route path='train' element={<TrainModel />} />
               <Route path='aboutus' element={<Aboutus />} /> 
               <Route path='signup' element={<SignUp />} /> 
             </Route>

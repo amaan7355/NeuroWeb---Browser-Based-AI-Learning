@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div className=''>
+    <div className='Montserrat'>
       <div className=''>
         <div id="preview" className="preview">
           <div style={{ display: "none" }} />
@@ -15,7 +15,7 @@ const Home = () => {
             >
               {/**/}
               {/**/}
-              <section draggable="false" className="pt-5" data-v-271253ee="">
+              <section draggable="false" className="pt-3" data-v-271253ee="">
                 <section className="mb-10 text-center text-lg-start background-linear-gradient p-3">
                   {" "}
                   {/* <style
@@ -24,16 +24,10 @@ const Home = () => {
                         " @media (min-width: 992px) { .cascading-right { margin-right: -50px; } .rotate-lg-6 { transform: rotate(3deg); } } "
                     }} */}
                   {/* Jumbotron */}{" "}
-                  <div className="container py-3">
+                  <div className="py-3 container">
                     {" "}
                     <div className="row g-0 align-items-center">
                       {" "}
-                      <div className="col-lg-6 mb-5 mb-lg-0 px-4">
-                        {" "}
-                        <video src='/home_video.mp4' height={"400rem"} width={"550rem"} className='rounded-4 img-fluid' autoPlay muted>
-                        </video>
-
-                      </div>{" "}
                       <div className="col-lg-6 mb-5 mb-lg-0">
                         {" "}
 
@@ -45,15 +39,15 @@ const Home = () => {
                           <div className="d-md-flex flex-row">
                             {" "}
                             <a
-                              className="btn btn-light btn-lg py-3 px-5 mb-2 me-2 mt-4"
-                              href="#"
+                              className="btn btn-light btn-lg py-3 px-5 mb-2 mt-4"
+                              href="/main/train"
                               role="button"
                               aria-controls="#picker-editor"
                               draggable="false"
                             >
                               Start Free Trial
                             </a>{" "}
-                            <a
+                            {/* <a
                               className="btn btn-link  btn-lg py-3 px-5 mb-2 me-2 mt-4 text-white"
                               data-ripple-color="success"
                               href="/main/aboutus"
@@ -62,7 +56,7 @@ const Home = () => {
                               draggable="false"
                             >
                               About us
-                            </a>
+                            </a> */}
                             {/* Submit button */}{" "}
                             {/* <button
                               type="submit"
@@ -74,6 +68,13 @@ const Home = () => {
                             </button>{" "} */}
                           </div>{" "}
                         </div>{" "}
+                      </div>{" "}
+
+                      <div className="col-lg-6 mb-5 mb-lg-0 px-5">
+                        {" "}
+                        <video src='/home_video.mp4' height={"400rem"} width={"550rem"} className='rounded-4 img-fluid' autoPlay muted>
+                        </video>
+
                       </div>{" "}
 
                     </div>{" "}
@@ -141,8 +142,8 @@ const Home = () => {
                       <div className="col-lg-6 mb-5 mb-lg-0">
                         {" "}
                         <img
-                          src="https://e0.pxfuel.com/wallpapers/459/542/desktop-wallpaper-automation-robot-background-awesome-robot-dinosaur-robot-and-robot-colorful-robot.jpg"
-                          className="w-100 rounded-4 shadow-4 rotate2"
+                          src="/robot.jpg"
+                          className="w-75 rounded-4 shadow-4"
                           alt=""
                           aria-controls="#picker-editor"
                           draggable="false"
@@ -152,10 +153,9 @@ const Home = () => {
                         {" "}
                         <div
                           className="card cascading-right background-linear-gradient text-white"
-                        // style={{
-                        //   background: "hsla(0, 0%, 10%, 0)",
-                        //   backdropFilter: "blur(30px)"
-                        // }}
+                        style={{
+                          marginRight: ""
+                        }}
                         >
                           {" "}
                           <div className="card-body py-4 px-md-5 shadow-5">
@@ -193,7 +193,7 @@ const Home = () => {
                       {" "}
                       <h2 className="mb-4 display-3 fw-bold ls-tight">
                         {" "}
-                        <span>What is TrainifAI?</span> <br />{" "}
+                        <span>What is <span style={{ color: "hsl(220, 81%, 60%)" }}>TrainifAI?</span></span> <br />{" "}
                         <span className="text-primary"></span>{" "}
                       </h2>{" "}
                       <p className="text-muted lead fs-3">
@@ -221,9 +221,9 @@ const Home = () => {
                       height={"280rem"}
                     />
                     <div className="card-body">
-                      <h5 className="card-title fw-bold">Image Classification Model Training</h5>
-                      <p className="card-text">
-                        Training an image classification model entails exposing it to labeled images, enabling the network to learn distinct visual features and patterns to accurately classify new, unseen images.
+                      <h4 className="card-title fw-bold">Image Classification Model Training</h4>
+                      <p className="card-text fs-5">
+                        Train a model to classify images by uploading images through your device or webcam.
                       </p>
                     </div>
                     {/* <div className="card-footer">
@@ -240,9 +240,9 @@ const Home = () => {
                       height={"280rem"}
                     />
                     <div className="card-body">
-                      <h5 className="card-title fw-bold">Audio Classification Model Training</h5>
-                      <p className="card-text">
-                        Audio classification model training entails exposing a neural network to labeled sound data, enabling it to learn distinctive features and patterns for accurate categorization of audio inputs.
+                      <h4 className="card-title fw-bold">Audio Classification Model Training</h4>
+                      <p className="card-text fs-5">
+                      Train a model to classify audio by uploading audio files or recording audio from your device.
                       </p>
                     </div>
                     {/* <div className="card-footer">
@@ -259,9 +259,9 @@ const Home = () => {
                       height={"280rem"}
                     />
                     <div className="card-body">
-                      <h5 className="card-title fw-bold">Text Classification Model Training</h5>
-                      <p className="card-text">
-                        Text classification model training teaches a neural network to categorize text by learning patterns from labeled data, aiding tasks like sentiment analysis or topic identification.
+                      <h4 className="card-title fw-bold">Text Classification Model Training</h4>
+                      <p className="card-text fs-5">
+                      Train a model to classify text by uploading text files.
                       </p>
                     </div>
                     {/* <div className="card-footer">
@@ -278,64 +278,8 @@ const Home = () => {
                 <span>Steps to Train a Classification Model!</span> <br />
                 <span className="text-primary"></span>
               </h2>
-              <div className="row row-cols-1 row-cols-md-3 g-4 my-4 p-3">
-                <div className="col">
-                  <div className="card h-100" style={{border: "none"}}>
-                    <img
-                      src="https://velog.velcdn.com/images/dyparkkk/post/b63de2a8-274d-4a92-a661-6204c32f30e2/image.png"
-                      className="card-img-top"
-                      alt="Skyscrapers"
-                      height={"280rem"}
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title fw-bold">Image Classification Model Training</h5>
-                      <p className="card-text">
-                        Training an image classification model entails exposing it to labeled images, enabling the network to learn distinct visual features and patterns to accurately classify new, unseen images.
-                      </p>
-                    </div>
-                    {/* <div className="card-footer">
-                      <small className="text-muted">Last updated 3 mins ago</small>
-                    </div> */}
-                  </div>
-                </div>
-                <div className="col">
-                  <div className="card h-100" style={{border: "none"}}>
-                    <img
-                      src="/audio_classifier.gif"
-                      className="card-img-top"
-                      alt="Los Angeles Skyscrapers"
-                      height={"280rem"}
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title fw-bold">Audio Classification Model Training</h5>
-                      <p className="card-text">
-                        Audio classification model training entails exposing a neural network to labeled sound data, enabling it to learn distinctive features and patterns for accurate categorization of audio inputs.
-                      </p>
-                    </div>
-                    {/* <div className="card-footer">
-                      <small className="text-muted">Last updated 3 mins ago</small>
-                    </div> */}
-                  </div>
-                </div>
-                <div className="col">
-                  <div className="card h-100" style={{border: "none"}}>
-                    <img
-                      src="/text_classifier.gif"
-                      className="card-img-top"
-                      alt="Palm Springs Road"
-                      height={"280rem"}
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title fw-bold">Text Classification Model Training</h5>
-                      <p className="card-text">
-                        Text classification model training teaches a neural network to categorize text by learning patterns from labeled data, aiding tasks like sentiment analysis or topic identification.
-                      </p>
-                    </div>
-                    {/* <div className="card-footer">
-                      <small className="text-muted">Last updated 3 mins ago</small>
-                    </div> */}
-                  </div>
-                </div>
+              <div>
+                <img src="https://assets-global.website-files.com/614c82ed388d53640613982e/6475ee7f074119ae0c60c4bb_image%20classification%20data%20labeling.webp" alt="" className='img-fluid mt-4' />
               </div>
             </div>
 
