@@ -28,7 +28,7 @@ function App() {
 
             <Route path='user' element={<User />} >
               <Route path='profile' element={<Profile />} />
-              <Route path='audioclassifier' element={<AudioClassifier />} />
+              <Route path='audio' element={<AudioClassifier />} />
             </Route>
             
         </Routes>
