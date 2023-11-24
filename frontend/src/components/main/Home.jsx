@@ -72,7 +72,7 @@ const Home = () => {
 
                       <div className="col-lg-6 mb-5 mb-lg-0 px-5">
                         {" "}
-                        <video src='/home_video.mp4' height={"400rem"} width={"550rem"} className='rounded-4 img-fluid' autoPlay muted>
+                        <video src='/home_video.mp4' height={"400rem"} width={"550rem"} className='rounded-4 img-fluid' autoPlay muted loop>
                         </video>
 
                       </div>{" "}

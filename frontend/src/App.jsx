@@ -10,6 +10,8 @@ import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 import Aboutus from './components/main/Aboutus';
 import AudioClassifier from './components/user/AudioClassifier';
 import TrainModel from './components/main/TrainModel';
+import ImageClassifier from './components/user/ImageClassifier';
+import TextClassifier from './components/user/TextClassifier';
 
 function App() {
 
@@ -28,7 +30,9 @@ function App() {
 
             <Route path='user' element={<User />} >
               <Route path='profile' element={<Profile />} />
+              <Route path='image' element={<ImageClassifier />} />
               <Route path='audio' element={<AudioClassifier />} />
+              <Route path='text' element={<TextClassifier />} />
             </Route>
             
         </Routes>

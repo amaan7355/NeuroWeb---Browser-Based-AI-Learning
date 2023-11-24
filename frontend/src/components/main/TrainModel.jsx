@@ -21,7 +21,7 @@ const TrainModel = () => {
                                 <p className="card-text fs-5">
                                     Train a model to classify images.
                                 </p>
-                                <button className='btn btn-primary w-100'>Start Training</button>
+                                <a href='/user/image' className='btn btn-primary w-100'>Start Training</a>
                             </div>
                             {/* <div className="card-footer">
                       <small className="text-muted">Last updated 3 mins ago</small>
@@ -41,7 +41,7 @@ const TrainModel = () => {
                                 <p className="card-text fs-5">
                                     Train a model to classify audio.
                                 </p>
-                                <button className='btn btn-primary w-100'>Start Training</button>
+                                <a href='/user/audio' className='btn btn-primary w-100'>Start Training</a>
                             </div>
                             {/* <div className="card-footer">
                       <small className="text-muted">Last updated 3 mins ago</small>
@@ -61,7 +61,7 @@ const TrainModel = () => {
                                 <p className="card-text fs-5">
                                     Train a model to classify text.
                                 </p>
-                                <button className='btn btn-primary w-100'>Start Training</button>
+                                <a href='/user/text' className='btn btn-primary w-100'>Start Training</a>
                             </div>
                             {/* <div className="card-footer">
                       <small className="text-muted">Last updated 3 mins ago</small>
