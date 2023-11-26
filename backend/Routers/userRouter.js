@@ -1,5 +1,9 @@
 const express = require("express");
 const Model = require('../models/userModel');
+const jwt = require('jsonwebtoken');
+const verifyToken = require("./verifyToken");
+require('dotenv').config();
+
 
 const router = express.Router();
 
@@ -18,7 +22,7 @@ router.post("/add", (req, res) => {
 });
 
 
-router.get("/getall", (req, res) => {
+router.get("/getall", verifyToken, (req, res) => {
   Model.find({})
   .then((result) => {
     res.json(result);
@@ -79,7 +83,27 @@ router.delete("/delete/:id", (req, res) => {
 router.post('/authenticate', (req, res) => {
   Model.findOne(req.body)
   .then((result) => {
-    if(result!==null) res.json(result);
+
+    if(result){
+
+    const payload = {_id : result._id, email : result.email, role : result.role};
+
+    //create token
+    jwt.sign(
+      payload,
+      process.env.JWT_SECRET,
+      {expiresIn : '7 days'},
+      (err, token) => {
+        if(err) {
+          console.log(err);
+        res.status(500).json({token : token });        }else{
+          res.status(200).json({token : token});
+        
+        }
+      }
+    )
+  }
+
     else res.status(401).json({message : 'login failed'})
   }).catch((err) => {
     console.log(err);

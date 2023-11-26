@@ -191,7 +191,7 @@ const AudioClassifier = () => {
     temp.splice(index, 1);
     setAudioClasses([...temp]);
   }
-  
+
   const renameClass = (index, value) => {
     const temp = audioClasses;
     temp[index].name = value;
@@ -254,7 +254,7 @@ const AudioClassifier = () => {
     //   </div>
 
     // </div>
-    <div style={{ backgroundColor: "#F1EFEF", height: "100vh" }}>
+    <div style={{ backgroundColor: "#F1EFEF", height: "100%" }}>
       <div className='container'>
         <div className='row d-flex align-items-center pt-5'>
           <div className='col-md-5'>
