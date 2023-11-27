@@ -79,3 +79,21 @@
   .Montserrat{
     font-family: Montserrat;
   }
+
+  .button-model{
+    background-color: #F3F3F3;
+    border: none;
+  }
+
+  .button-model:hover{
+    background-color: #F3F3F3;
+  }
+
+  .button-data{
+    background-color: white;
+    border: none;
+  }
+
+  .button-data:hover{
+    background-color: #95c8fc5f;
+  }
