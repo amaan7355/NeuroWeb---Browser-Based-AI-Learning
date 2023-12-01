@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+
+
 const ImageClassifier = () => {
   const [trainedModel, setTrainedModel] = useState(null);
   const [imageClasses, setImageClasses] = useState([
