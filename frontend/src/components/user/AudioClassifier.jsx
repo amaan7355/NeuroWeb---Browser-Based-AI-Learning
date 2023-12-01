@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const AudioClassifier = () => {
   const [trainedModel, setTrainedModel] = useState(null);
+  const [accuracyValue, setAccuracyValue] = useState(0);
+
+  const [listening, setListening] = useState(false);
+
   const [audioClasses, setAudioClasses] = useState([
     {
       name: 'Background Noise',
@@ -36,7 +40,12 @@ const AudioClassifier = () => {
     //  predictWord();
   }
 
-  app();
+  useEffect(() => {
+    app();
+  }, [])
+  
+
+  // app();
 
   // One frame is ~23ms of audio.
   const NUM_FRAMES = 3;
@@ -74,6 +83,7 @@ const AudioClassifier = () => {
       includeSpectrogram: true,
       invokeCallbackOnNoiseAndUnknown: true
     });
+    console.log(examples);
   }
 
   function normalize(x) {
@@ -146,9 +156,11 @@ const AudioClassifier = () => {
       return;
     }
     let delta = 0.1;
-    const prevValue = +document.getElementById('output').value;
-    document.getElementById('output').value =
-      prevValue + (label === 0 ? -delta : delta);
+    const prevValue = accuracyValue;
+    setAccuracyValue(prevValue + (label === 0 ? -delta : delta));
+    // const prevValue = +document.getElementById('output').value;
+    // document.getElementById('output').value =
+    //   prevValue + (label === 0 ? -delta : delta);
   }
 
   function listen() {
@@ -156,12 +168,14 @@ const AudioClassifier = () => {
     if (recognizer.isListening()) {
       recognizer.stopListening();
       toggleButtons(true);
-      document.getElementById('listen').textContent = 'Listen';
+      // document.getElementById('listen').textContent = 'Listen';
+      setListening(false);
       return;
     }
     toggleButtons(false);
-    document.getElementById('listen').textContent = 'Stop';
-    document.getElementById('listen').disabled = false;
+    setListening(true);
+    // document.getElementById('listen').textContent = 'Stop';
+    // document.getElementById('listen').disabled = false;
 
     recognizer.listen(async ({ spectrogram: { frameSize, data } }) => {
       const vals = normalize(data.subarray(-frameSize * NUM_FRAMES));
@@ -215,7 +229,7 @@ const AudioClassifier = () => {
           <p className=''>Add Audio Samples</p>
           <div className='row w-50'>
             <div className='col-md-4'>
-              <button className='btn button-data'><img src="https://img.freepik.com/vecteurs-premium/3d-realiste-microphone-icone-illustration-vectorielle_156780-267.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1698278400&semt=ais" alt="" className='img-fluid' width={"50rem"} /><p>Mic</p></button>
+              <button className='btn button-data'><img src="https://img.freepik.com/vecteurs-premium/3d-realiste-microphone-icone-illustration-vectorielle_156780-267.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1698278400&semt=ais" alt="" className='img-fluid' width={"50rem"} onMouseDown={() => collect(index)} onMouseUp={() => collect(null)} /><p>Mic</p></button>
             </div>
             <div className='col-md-4'>
               <button className='btn button-data'><img src="https://cdn-icons-png.flaticon.com/512/8199/8199243.png" alt="" className='img-fluid' width={'40rem'} /> <p>Upload</p> </button>
@@ -224,6 +238,13 @@ const AudioClassifier = () => {
         </div>
       </div>
     })
+  }
+
+  const preview = () => {
+    return <div>
+      <button className='btn btn-primary mt-3' onClick={listen} >{listening ? 'Stop' : 'Open Mic'}</button>
+      <h4>Prediction Accuracy : {accuracyValue}</h4>
+    </div>
   }
 
   return (
@@ -267,7 +288,7 @@ const AudioClassifier = () => {
               <div className='card-body'>
                 <h4>Training</h4>
                 <div>
-                  <button className='btn button-model text-muted rounded-1 w-100'>Train Model</button>
+                  <button className='btn button-model text-muted rounded-1 w-100' onClick={train}>Train Model</button>
                   <hr style={{ color: "#A9A9A9" }} />
                   <button className='btn w-100 text-muted button-data p-2' style={{ textAlign: "left" }}>
                     <div className='row'>
@@ -295,6 +316,7 @@ const AudioClassifier = () => {
                       <font className='p-1 me-4'>Export Model</font>
                       <i class="fa-solid fa-arrow-up-from-bracket"></i>
                     </button>
+                    {preview()}
                   </div>
                 </div>
                 <hr style={{ color: "#A9A9A9" }} />
