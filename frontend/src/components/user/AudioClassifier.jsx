@@ -275,22 +275,22 @@ const AudioClassifier = () => {
     //   </div>
 
     // </div>
-    <div style={{ backgroundColor: "#F1EFEF", height: '100vh' }}>
+    <div className='background-linear-gradient'>
       <div className='container'>
         <div className='row d-flex align-items-center pt-5 p-2'>
           <div className='col-md-6'>
             {displayClasses()}
 
-            <button className='btn btn-primary mt-4 w-100' onClick={addNewClass}>Add New Class</button>
+            <button className='btn btn-light btn-lg my-3 w-100' onClick={addNewClass}>Add New Class</button>
           </div>
           <div className='col-md-3'>
             <div className='card shadow p-1'>
               <div className='card-body'>
                 <h4>Training</h4>
                 <div>
-                  <button className='btn button-model text-muted rounded-1 w-100' onClick={train}>Train Model</button>
+                  <button className='btn btn-primary rounded-1 w-100' onClick={train}>Train Model</button>
                   <hr style={{ color: "#A9A9A9" }} />
-                  <button className='btn w-100 text-muted button-data p-2' style={{ textAlign: "left" }}>
+                  <button className='btn btn-light w-100 p-2' style={{ textAlign: "left" }}>
                     <div className='row'>
                       <div className='col-md-6'>
                         <h7>Advanced</h7>
@@ -312,7 +312,7 @@ const AudioClassifier = () => {
                     <h5 className='mt-2'>Preview</h5>
                   </div>
                   <div className='col-md-8'>
-                    <button className='btn button-model'>
+                    <button className='btn btn-success'>
                       <font className='p-1 me-4'>Export Model</font>
                       <i class="fa-solid fa-arrow-up-from-bracket"></i>
                     </button>

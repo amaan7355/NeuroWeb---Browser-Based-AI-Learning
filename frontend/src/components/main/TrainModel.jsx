@@ -2,7 +2,7 @@ import React from 'react'
 
 const TrainModel = () => {
     return (
-        <div style={{ backgroundColor: '#F5F7F8', height: "100vh" }}>
+        <div className='background-linear-gradient vh-100 text-white'>
             <div className='train'>
                 <h1 className='fw-bold Montserrat' style={{ fontSize: "3.5rem" }}>Start a Project.</h1>
             </div>

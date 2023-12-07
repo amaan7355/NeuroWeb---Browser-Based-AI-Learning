@@ -1,4 +1,7 @@
 import React from 'react'
+import Lottie from 'lottie-react';
+import animationData from '../../assets/homeAnimation.json';
+import {motion} from 'framer-motion';
 
 const Home = () => {
   return (
@@ -72,8 +75,13 @@ const Home = () => {
 
                       <div className="col-lg-6 mb-5 mb-lg-0 px-5">
                         {" "}
-                        <video src='/home_video.mp4' height={"400rem"} width={"550rem"} className='rounded-4 img-fluid' autoPlay muted loop>
-                        </video>
+
+                        <Lottie animationData={animationData} />
+
+                        {/* <Lottie animationData={animationData}/> */}
+
+                        {/* <video src='/home_video.mp4' height={"400rem"} width={"550rem"} className='rounded-4 img-fluid' autoPlay muted loop>
+                        </video> */}
 
                       </div>{" "}
 

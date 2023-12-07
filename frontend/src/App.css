@@ -1,7 +1,7 @@
-.body-signup{
-    background-image: url("https://static.vecteezy.com/system/resources/previews/003/462/493/original/abstract-futuristic-face-concept-artificial-intelligence-background-free-vector.jpg");
-    background-size: cover;
-    height: 100vh;
+.body-signup {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/003/462/493/original/abstract-futuristic-face-concept-artificial-intelligence-background-free-vector.jpg");
+  background-size: cover;
+  height: 100vh;
 }
 
 /* .body-home{
@@ -10,90 +10,81 @@
     height: 100%;
 } */
 
-.nav-item .active{
-    font-weight: bolder;
-    border-bottom: 2px solid blueviolet;
-    /* color: blueviolet !important; */
-  }
+.nav-item .active {
+  font-weight: bolder;
+  border-bottom: 2px solid blueviolet;
+  /* color: blueviolet !important; */
+}
 
-  .rotate1{
-    transform: rotate(6deg);
-  }
+.rotate1 {
+  transform: rotate(6deg);
+}
 
-  .rotate2{
-    transform: rotate(-6deg);
-  }
+.rotate2 {
+  transform: rotate(-6deg);
+}
 
-  .gradient-custom {
-    background: radial-gradient(50% 123.47% at 50% 50%, #00ff94 0%, #720059 100%),
-      linear-gradient(121.28deg, #669600 0%, #ff0000 100%),
-      linear-gradient(360deg, #0029ff 0%, #8fff00 100%),
-      radial-gradient(100% 164.72% at 100% 100%, #6100ff 0%, #00ff57 100%),
-      radial-gradient(100% 148.07% at 0% 0%, #fff500 0%, #51d500 100%);
-    background-blend-mode: screen, color-dodge, overlay, difference, normal;
-  }
-  .carousel-indicators {
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-  }
+.gradient-custom {
+  background: radial-gradient(50% 123.47% at 50% 50%, #00ff94 0%, #720059 100%),
+    linear-gradient(121.28deg, #669600 0%, #ff0000 100%),
+    linear-gradient(360deg, #0029ff 0%, #8fff00 100%),
+    radial-gradient(100% 164.72% at 100% 100%, #6100ff 0%, #00ff57 100%),
+    radial-gradient(100% 148.07% at 0% 0%, #fff500 0%, #51d500 100%);
+  background-blend-mode: screen, color-dodge, overlay, difference, normal;
+}
 
-  .button{
-    background-color: hsla(217, 81%, 68%, 0.644);
-    color: white;
-  }
+.carousel-indicators {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
 
-  .button:hover{
-    background-color: hsl(218, 74%, 60%);
-    color: white;
-  }
+.button {
+  background-color: hsla(217, 81%, 68%, 0.644);
+  color: white;
+}
 
-  .background-linear-gradient{
-    background: rgb(81,74,196);
-    background: linear-gradient(120deg, rgba(81,74,196,1) 24%, rgba(21,18,153,1) 42%, rgba(21,18,153,1) 60%, rgba(81,74,196,1) 84%);
-  }
+.button:hover {
+  background-color: hsl(218, 74%, 60%);
+  color: white;
+}
 
-  .button-search{
-    border: 1px solid rgb(81,74,196);;
-  }
+.background-linear-gradient {
+  background: rgb(81, 74, 196);
+  background: linear-gradient(120deg, rgba(81, 74, 196, 1) 24%, rgba(21, 18, 153, 1) 42%, rgba(21, 18, 153, 1) 60%, rgba(81, 74, 196, 1) 84%);
+}
 
-  .button-search:hover {
-    background-color: rgba(81,74,196,1);
-    color: white;
-  }
+.button-search {
+  border: 1px solid rgb(81, 74, 196);
+  ;
+}
 
-  .train{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 3rem;
-  }
+.button-search:hover {
+  background-color: rgba(81, 74, 196, 1);
+  color: white;
+}
 
-  .audio-train{
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    padding-top: 10rem;
-  }
+.train {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+}
 
-  .Montserrat{
-    font-family: Montserrat;
-  }
+.audio-train {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  padding-top: 10rem;
+}
 
-  .button-model{
-    background-color: #F3F3F3;
-    border: none;
-  }
+.Montserrat {
+  font-family: Montserrat;
+}
 
-  .button-model:hover{
-    background-color: #F3F3F3;
-  }
-
-  .button-data{
-    background-color: white;
-    border: none;
-  }
-
-  .button-data:hover{
-    background-color: #95c8fc5f;
-  }
+/* .bg-train {
+  background: rgb(60, 58, 58);
+  background: linear-gradient(90deg, rgb(72, 69, 69) 8%, rgba(83, 65, 127, 1) 24%, rgb(86, 65, 141) 38%, rgba(34, 21, 81, 1) 54%, rgb(78, 64, 135) 83%, rgb(57, 46, 46) 94%);
+  height: 100vh;
+  color: white;
+} */
