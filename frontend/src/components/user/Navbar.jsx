@@ -29,8 +29,8 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link me-3" to="/main/aboutus">
-                    <font className='fw-bold fs-5'>About</font>
+                  <NavLink className="nav-link me-3" to="/user/managemodel">
+                    <font className='fw-bold fs-5'>Manage Model</font>
                   </NavLink>
                 </li>
               </ul>

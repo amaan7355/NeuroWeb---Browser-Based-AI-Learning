@@ -14,6 +14,8 @@
     "framer-motion": "^10.16.4",
     "i": "^0.3.7",
     "lottie-react": "^2.4.0",
+    "mdb-react-ui-kit": "^7.0.0",
+    "mdb-ui-kit": "^7.1.0",
     "notistack": "^3.0.1",
     "npm": "^10.2.5",
     "react": "^18.2.0",

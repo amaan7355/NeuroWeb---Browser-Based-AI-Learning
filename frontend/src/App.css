@@ -82,9 +82,9 @@
   font-family: Montserrat;
 }
 
-/* .bg-train {
-  background: rgb(60, 58, 58);
-  background: linear-gradient(90deg, rgb(72, 69, 69) 8%, rgba(83, 65, 127, 1) 24%, rgb(86, 65, 141) 38%, rgba(34, 21, 81, 1) 54%, rgb(78, 64, 135) 83%, rgb(57, 46, 46) 94%);
-  height: 100vh;
-  color: white;
-} */
+.manage-model {
+  background: rgb(152, 74, 196);
+  background: linear-gradient(120deg, rgba(152, 74, 196, 1) 21%, rgba(81, 18, 153, 1) 39%, rgba(117, 18, 153, 1) 56%, rgba(91, 25, 155, 1) 69%, rgba(74, 171, 196, 1) 84%);
+  height: 8rem;
+  padding: 2rem;
+}

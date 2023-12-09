@@ -12,6 +12,7 @@ import AudioClassifier from './components/user/AudioClassifier';
 import TrainModel from './components/main/TrainModel';
 import ImageClassifier from './components/user/ImageClassifier';
 import TextClassifier from './components/user/TextClassifier';
+import ManageModel from './components/user/ManageModel';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
               <Route path='image' element={<ImageClassifier />} />
               <Route path='audio' element={<AudioClassifier />} />
               <Route path='text' element={<TextClassifier />} />
+              <Route path='managemodel' element={<ManageModel />} />
             </Route>
             
         </Routes>
