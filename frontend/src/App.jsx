@@ -13,6 +13,7 @@ import TrainModel from './components/main/TrainModel';
 import ImageClassifier from './components/user/ImageClassifier';
 import TextClassifier from './components/user/TextClassifier';
 import ManageModel from './components/user/ManageModel';
+import ResetPassword from './components/main/ResetPassword';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Routes>
             <Route path='main' element={<Main />} >
               <Route path='home' element={<Home />} />
+              <Route path='resetpassword' element={<ResetPassword />} />
               <Route path='train' element={<TrainModel />} />
               <Route path='aboutus' element={<Aboutus />} /> 
               <Route path='signup' element={<SignUp />} /> 

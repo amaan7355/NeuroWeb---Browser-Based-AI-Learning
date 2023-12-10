@@ -5,7 +5,8 @@
         email : { type: String, require: true, unique: true},
         password : { type: String, require: true},
         avatar : {type : String, default: "default_avatar.jpg"},
-        createdAt : Date
+        createdAt : Date,
+        email_verified : {type: Boolean, default: false}
     });
 
    module.exports =  model( 'user', mySchema );

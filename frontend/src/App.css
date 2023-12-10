@@ -84,7 +84,7 @@
 
 .manage-model {
   background: rgb(152, 74, 196);
-  background: linear-gradient(120deg, rgba(152, 74, 196, 1) 21%, rgba(81, 18, 153, 1) 39%, rgba(117, 18, 153, 1) 56%, rgba(91, 25, 155, 1) 69%, rgba(74, 171, 196, 1) 84%);
+  background: linear-gradient(90deg, rgba(152, 74, 196, 1) 11%, rgba(81, 18, 153, 1) 39%, rgba(117, 18, 153, 1) 56%, rgba(91, 25, 155, 1) 69%, rgba(152, 74, 196, 1) 88%);
   height: 8rem;
   padding: 2rem;
 }
