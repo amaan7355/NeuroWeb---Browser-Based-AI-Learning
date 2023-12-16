@@ -3,6 +3,12 @@
   height: 100vh;
 }
 
+.body-dashboard{
+  background-color: #F1EFEF;
+  height: 100%;
+
+}
+
 /* .body-home{
     background-image: url("https://wallpapercave.com/wp/wp7890704.png");
     background-size: cover;
