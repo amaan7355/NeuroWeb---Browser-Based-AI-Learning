@@ -76,8 +76,8 @@ const SignUp = () => {
               </div>
               {/* <div style={{borderLeft: "1px solid gray", height: "100%", position: "absolute", left: "50%"}}></div> */}
               <div className='col-md-6 p-5 font'>
-                <img src="https://thumbs.dreamstime.com/b/artificial-intelligence-ai-research-robot-cyborg-development-future-people-living-digital-data-mining-machine-learning-171270756.jpg" className='d-block m-auto w-100' alt="" />
-                <h2 className='w-80 text-center font mt-4'>Empowering Users with AI Model Training Online and Offline</h2><br />
+                <img src="https://miro.medium.com/v2/resize:fit:750/1*ePyrIStlJnYr7xkqwozu8w.gif" className='d-block m-auto w-100' alt="" />
+                <h2 className='w-80 text-center font mt-4'>Empowering Users with <span className='text-primary'>AI Model Training</span> Online and Offline</h2><br />
                 <div className='align-items-bottom justify-content-bottom'>
                 <p className='mt-2 text-center'>Do you have any questions?<span className='text-decoration-underline fw-bold ms-2'>Contact us</span></p>
                 </div>

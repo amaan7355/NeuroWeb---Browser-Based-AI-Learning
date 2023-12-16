@@ -87,7 +87,7 @@ const SignupForm = ({ setSignupOpen }) => {
     >
       <form onSubmit={signUpform.handleSubmit} className=''>
         <h3 className="text-center mt-3">Sign up to </h3>
-        <h2 className='text-center fw-bold'>NeuroWeb</h2><hr />
+        <h2 className='text-center fw-bold text-primary'>TrainifAI</h2><hr />
         <label className='form-label fw-bold'>
           Full Name<span style={{ color: 'red' }}> <sup>*</sup></span>
         </label>
@@ -106,7 +106,7 @@ const SignupForm = ({ setSignupOpen }) => {
         {/* <input type="file" className='my-3' onChange={uploadFile} />
         <br /> */}
         {/* <p className=' signup-tc'><input type="checkbox" className='me-2' /> I accept <span className='text-decoration-underline fw-bold'>terms and conditions</span> & <span className='text-decoration-underline fw-bold'>privacy policy</span></p> */}
-        <button disabled={signUpform.isSubmitting} className="btn btn-dark w-100 mt-2 mb-4" type='submit'>
+        <button disabled={signUpform.isSubmitting} className="btn btn-primary w-100 mt-2 mb-4" type='submit'>
           {
             signUpform.isSubmitting ? (
               <>

@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 const STATUS = document.getElementById('status');
-const VIDEO = document.getElementById('webcam');
+// const VIDEO = document.getElementById('webcam');
 const ENABLE_CAM_BUTTON = document.getElementById('enableCam');
 const RESET_BUTTON = document.getElementById('reset');
 const TRAIN_BUTTON = document.getElementById('train');
 const MOBILE_NET_INPUT_WIDTH = 224;
 const MOBILE_NET_INPUT_HEIGHT = 224;
 const STOP_DATA_GATHER = -1;
-const CLASS_NAMES = [];
+const CLASS_NAMES = ['new'];
 
 const ImageClassifier = () => {
   const [trainedModel, setTrainedModel] = useState(null);
+  const camRef = useRef(null);
   const [imageClasses, setImageClasses] = useState([
     {
       name: 'Untitled Class 1',
@@ -42,12 +43,18 @@ const ImageClassifier = () => {
     setImageClasses([...temp])
   }
 
-  let dataCollectorButtons = document.querySelectorAll('button.dataCollector');
-for (let i = 0; i < dataCollectorButtons.length; i++) {
-  dataCollectorButtons[i].addEventListener('mousedown', gatherDataForClass);
-  dataCollectorButtons[i].addEventListener('mouseup', gatherDataForClass);
-  // Populate the human readable names for classes.
-  CLASS_NAMES.push(dataCollectorButtons[i].getAttribute('data-name'));
+//   let dataCollectorButtons = document.querySelectorAll('button.dataCollector');
+// for (let i = 0; i < dataCollectorButtons.length; i++) {
+//   dataCollectorButtons[i].addEventListener('mousedown', gatherDataForClass);
+//   dataCollectorButtons[i].addEventListener('mouseup', gatherDataForClass);
+//   // Populate the human readable names for classes.
+//   CLASS_NAMES.push(dataCollectorButtons[i].getAttribute('data-name'));
+// }
+
+const collectImageData = (num) => {
+  gatherDataState = (gatherDataState === STOP_DATA_GATHER) ? num : STOP_DATA_GATHER;
+  dataGatherLoop();
+
 }
 
 
@@ -67,7 +74,8 @@ async function loadMobileNetFeatureModel() {
       'https://tfhub.dev/google/tfjs-model/imagenet/mobilenet_v3_small_100_224/feature_vector/5/default/1';
     
     mobilenet = await tf.loadGraphModel(URL, {fromTFHub: true});
-    STATUS.innerText = 'MobileNet v3 loaded successfully!';
+    console.log('MobileNet v3 loaded successfully!');
+    // STATUS.innerText = ;
     
     // Warm up the model by passing zeros through it once.
     tf.tidy(function () {
@@ -111,7 +119,10 @@ function hasGetUserMedia() {
   
       // Activate the webcam stream.
       navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
-        VIDEO.srcObject = stream;
+        let VIDEO = camRef.current;
+        camRef.current.srcObject = stream;
+        // VIDEO.src = URL.createObjectURL(stream);
+        console.log(stream);
         VIDEO.addEventListener('loadeddata', function() {
           videoPlaying = true;
           // ENABLE_CAM_BUTTON.classList.add('removed');
@@ -132,6 +143,7 @@ function gatherDataForClass() {
   }
 
   function dataGatherLoop() {
+    let VIDEO = camRef.current;
     if (videoPlaying && gatherDataState !== STOP_DATA_GATHER) {
       let imageFeatures = tf.tidy(function() {
         let videoFrameAsTensor = tf.browser.fromPixels(VIDEO);
@@ -152,10 +164,11 @@ function gatherDataForClass() {
   
       STATUS.innerText = '';
       for (let n = 0; n < CLASS_NAMES.length; n++) {
-        STATUS.innerText += CLASS_NAMES[n] + ' data count: ' + examplesCount[n] + '. ';
+        console.log(CLASS_NAMES[n] + ' data count: ' + examplesCount[n] + '. ');
       }
       window.requestAnimationFrame(dataGatherLoop);
     }
+    console.log(trainingDataInputs)
   }
 
   async function trainAndPredict() {
@@ -232,11 +245,11 @@ function reset() {
           <hr className='w-100' style={{ color: "#A9A9A9" }} />
           <p className=''>Add Image Samples</p>
           <div className='row w-50'>
-            <div className='col-md-4'>
+            <div className='col-md-6'>
               <button className='btn button-data' onClick={enableCam}><img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-coloricon-1/21/54-512.png" alt="" className='img-fluid' width={"40rem"} /><p className=''>Webcam</p></button>
             </div>
-            <div className='col-md-4'>
-              <button className='btn button-data'><img src="https://cdn-icons-png.flaticon.com/512/8199/8199243.png" alt="" className='img-fluid' width={'38rem'} /> <p>Upload</p> </button>
+            <div className='col-md-6'>
+              <button className='btn button-data' onMouseUp={() => collectImageData(index)} onMouseDown={() => collectImageData(index)}><img src="https://cdn-icons-png.flaticon.com/512/8199/8199243.png" alt="" className='img-fluid' width={'38rem'} /> <p>Capture Image</p> </button>
             </div>
           </div>
         </div>
@@ -245,6 +258,7 @@ function reset() {
   }
   return (
     <div className='background-linear-gradient'>
+      <video autoplay muted ref={camRef}></video>
       <div className='bg-train'>
         <div className='container'>
           <div className='row d-flex align-items-center pt-5 p-2'>
