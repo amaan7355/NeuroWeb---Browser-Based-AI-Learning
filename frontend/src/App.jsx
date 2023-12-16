@@ -1,6 +1,7 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Main from './components/main';
+import Admin from './components/admin';
 import Home from './components/main/Home';
 import User from './components/user';
 import Profile from './components/user/Profile';
@@ -14,33 +15,37 @@ import ImageClassifier from './components/user/ImageClassifier';
 import TextClassifier from './components/user/TextClassifier';
 import ManageModel from './components/user/ManageModel';
 import ResetPassword from './components/main/ResetPassword';
+import AdminDashboard from './components/admin/AdminDashboard';
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
-      <SnackbarProvider>
-      <AppProvider>
-        <Routes>
-            <Route path='main' element={<Main />} >
-              <Route path='home' element={<Home />} />
-              <Route path='resetpassword' element={<ResetPassword />} />
-              <Route path='train' element={<TrainModel />} />
-              <Route path='aboutus' element={<Aboutus />} /> 
-              <Route path='signup' element={<SignUp />} /> 
-            </Route>
+        <SnackbarProvider>
+          <AppProvider>
+            <Routes>
+              <Route path='admin' element={<Admin />} >
+                <Route path='dashboard' element={<AdminDashboard />} />
+              </Route>
+              <Route path='main' element={<Main />} >
+                <Route path='home' element={<Home />} />
+                <Route path='resetpassword' element={<ResetPassword />} />
+                <Route path='train' element={<TrainModel />} />
+                <Route path='aboutus' element={<Aboutus />} />
+                <Route path='signup' element={<SignUp />} />
+              </Route>
 
-            <Route path='user' element={<User />} >
-              <Route path='profile' element={<Profile />} />
-              <Route path='image' element={<ImageClassifier />} />
-              <Route path='audio' element={<AudioClassifier />} />
-              <Route path='text' element={<TextClassifier />} />
-              <Route path='managemodel' element={<ManageModel />} />
-            </Route>
-            
-        </Routes>
-        </AppProvider>
+              <Route path='user' element={<User />} >
+                <Route path='profile' element={<Profile />} />
+                <Route path='image' element={<ImageClassifier />} />
+                <Route path='audio' element={<AudioClassifier />} />
+                <Route path='text' element={<TextClassifier />} />
+                <Route path='managemodel' element={<ManageModel />} />
+              </Route>
+
+            </Routes>
+          </AppProvider>
         </SnackbarProvider>
       </BrowserRouter>
     </>
