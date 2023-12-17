@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const STATUS = document.getElementById('status');
 // const VIDEO = document.getElementById('webcam');
@@ -8,19 +8,19 @@ const TRAIN_BUTTON = document.getElementById('train');
 const MOBILE_NET_INPUT_WIDTH = 224;
 const MOBILE_NET_INPUT_HEIGHT = 224;
 const STOP_DATA_GATHER = -1;
-const CLASS_NAMES = ['new'];
+const CLASS_NAMES = ['new', 'old'];
 
 const ImageClassifier = () => {
   const [trainedModel, setTrainedModel] = useState(null);
   const camRef = useRef(null);
   const [imageClasses, setImageClasses] = useState([
     {
-      name: 'Untitled Class 1',
+      name: 'Phone',
       samples: [],
       default: true
     },
     {
-      name: 'Untitled Class 2',
+      name: 'Marker',
       samples: []
     },
   ])
@@ -43,87 +43,94 @@ const ImageClassifier = () => {
     setImageClasses([...temp])
   }
 
-//   let dataCollectorButtons = document.querySelectorAll('button.dataCollector');
-// for (let i = 0; i < dataCollectorButtons.length; i++) {
-//   dataCollectorButtons[i].addEventListener('mousedown', gatherDataForClass);
-//   dataCollectorButtons[i].addEventListener('mouseup', gatherDataForClass);
-//   // Populate the human readable names for classes.
-//   CLASS_NAMES.push(dataCollectorButtons[i].getAttribute('data-name'));
-// }
+  //   let dataCollectorButtons = document.querySelectorAll('button.dataCollector');
+  // for (let i = 0; i < dataCollectorButtons.length; i++) {
+  //   dataCollectorButtons[i].addEventListener('mousedown', gatherDataForClass);
+  //   dataCollectorButtons[i].addEventListener('mouseup', gatherDataForClass);
+  //   // Populate the human readable names for classes.
+  //   CLASS_NAMES.push(dataCollectorButtons[i].getAttribute('data-name'));
+  // }
 
-const collectImageData = (num) => {
-  gatherDataState = (gatherDataState === STOP_DATA_GATHER) ? num : STOP_DATA_GATHER;
-  dataGatherLoop();
+  const collectImageData = (num) => {
+    gatherDataState = (gatherDataState === STOP_DATA_GATHER) ? num : STOP_DATA_GATHER;
+    dataGatherLoop();
 
-}
+  }
 
 
-let mobilenet = undefined;
-let gatherDataState = STOP_DATA_GATHER;
-let videoPlaying = false;
-let trainingDataInputs = [];
-let trainingDataOutputs = [];
-let examplesCount = [];
-let predict = false;
+  let mobilenet = undefined;
+  let gatherDataState = STOP_DATA_GATHER;
+  let videoPlaying = false;
+  let trainingDataInputs = [];
+  let trainingDataOutputs = [];
+  let examplesCount = [];
+  let predict = false;
+  let model = tf.sequential();
 
-/**
- * Loads the MobileNet model and warms it up so ready for use.
- **/
-async function loadMobileNetFeatureModel() {
-    const URL = 
+  /**
+   * Loads the MobileNet model and warms it up so ready for use.
+   **/
+  async function loadMobileNetFeatureModel() {
+    const URL =
       'https://tfhub.dev/google/tfjs-model/imagenet/mobilenet_v3_small_100_224/feature_vector/5/default/1';
-    
-    mobilenet = await tf.loadGraphModel(URL, {fromTFHub: true});
+
+    mobilenet = await tf.loadGraphModel(URL, { fromTFHub: true });
     console.log('MobileNet v3 loaded successfully!');
     // STATUS.innerText = ;
-    
+
     // Warm up the model by passing zeros through it once.
     tf.tidy(function () {
       let answer = mobilenet.predict(tf.zeros([1, MOBILE_NET_INPUT_HEIGHT, MOBILE_NET_INPUT_WIDTH, 3]));
       console.log(answer.shape);
     });
   }
-  
+
+
   // Call the function immediately to start loading.
-  loadMobileNetFeatureModel();
 
-  let model = tf.sequential();
-model.add(tf.layers.dense({inputShape: [1024], units: 128, activation: 'relu'}));
-model.add(tf.layers.dense({units: CLASS_NAMES.length, activation: 'softmax'}));
+  useEffect(() => {
+    loadMobileNetFeatureModel();
+    model.add(tf.layers.dense({ inputShape: [1024], units: 128, activation: 'relu' }));
+    model.add(tf.layers.dense({ units: imageClasses.map(imgClass => imgClass.name).length, activation: 'softmax' }));
+    model.compile({
+      // Adam changes the learning rate over time which is useful.
+      optimizer: 'adam',
+      // Use the correct loss function. If 2 classes of data, must use binaryCrossentropy.
+      // Else categoricalCrossentropy is used if more than 2 classes.
+      loss: (imageClasses.map(imgClass => imgClass.name).length === 2) ? 'binaryCrossentropy' : 'categoricalCrossentropy',
+      // As this is a classification problem you can record accuracy in the logs too!
+      metrics: ['accuracy']
+    });
+    model.summary();
+  }, [])
 
-model.summary();
 
-// Compile the model with the defined optimizer and specify a loss function to use.
-model.compile({
-  // Adam changes the learning rate over time which is useful.
-  optimizer: 'adam',
-  // Use the correct loss function. If 2 classes of data, must use binaryCrossentropy.
-  // Else categoricalCrossentropy is used if more than 2 classes.
-  loss: (CLASS_NAMES.length === 2) ? 'binaryCrossentropy': 'categoricalCrossentropy', 
-  // As this is a classification problem you can record accuracy in the logs too!
-  metrics: ['accuracy']  
-});
 
-function hasGetUserMedia() {
+
+
+  // Compile the model with the defined optimizer and specify a loss function to use.
+
+
+  function hasGetUserMedia() {
     return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
   }
-  
+
   function enableCam() {
     if (hasGetUserMedia()) {
       // getUsermedia parameters.
       const constraints = {
         video: true,
-        width: 640, 
-        height: 480 
+        width: 640,
+        height: 480
       };
-  
+
       // Activate the webcam stream.
-      navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
-        let VIDEO = camRef.current;
+      navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
         camRef.current.srcObject = stream;
+        let VIDEO = camRef.current;
         // VIDEO.src = URL.createObjectURL(stream);
         console.log(stream);
-        VIDEO.addEventListener('loadeddata', function() {
+        VIDEO.addEventListener('loadeddata', function () {
           videoPlaying = true;
           // ENABLE_CAM_BUTTON.classList.add('removed');
         });
@@ -136,7 +143,7 @@ function hasGetUserMedia() {
   /**
  * Handle Data Gather for button mouseup/mousedown.
  **/
-function gatherDataForClass() {
+  function gatherDataForClass() {
     let classNumber = parseInt(this.getAttribute('data-1hot'));
     gatherDataState = (gatherDataState === STOP_DATA_GATHER) ? classNumber : STOP_DATA_GATHER;
     dataGatherLoop();
@@ -145,26 +152,26 @@ function gatherDataForClass() {
   function dataGatherLoop() {
     let VIDEO = camRef.current;
     if (videoPlaying && gatherDataState !== STOP_DATA_GATHER) {
-      let imageFeatures = tf.tidy(function() {
+      let imageFeatures = tf.tidy(function () {
         let videoFrameAsTensor = tf.browser.fromPixels(VIDEO);
-        let resizedTensorFrame = tf.image.resizeBilinear(videoFrameAsTensor, [MOBILE_NET_INPUT_HEIGHT, 
-            MOBILE_NET_INPUT_WIDTH], true);
+        let resizedTensorFrame = tf.image.resizeBilinear(videoFrameAsTensor, [MOBILE_NET_INPUT_HEIGHT,
+          MOBILE_NET_INPUT_WIDTH], true);
         let normalizedTensorFrame = resizedTensorFrame.div(255);
         return mobilenet.predict(normalizedTensorFrame.expandDims()).squeeze();
       });
-  
+
       trainingDataInputs.push(imageFeatures);
       trainingDataOutputs.push(gatherDataState);
-      
+
       // Intialize array index element if currently undefined.
       if (examplesCount[gatherDataState] === undefined) {
         examplesCount[gatherDataState] = 0;
       }
       examplesCount[gatherDataState]++;
-  
-      STATUS.innerText = '';
-      for (let n = 0; n < CLASS_NAMES.length; n++) {
-        console.log(CLASS_NAMES[n] + ' data count: ' + examplesCount[n] + '. ');
+
+      // STATUS.innerText = '';
+      for (let n = 0; n < imageClasses.map(imgClass => imgClass.name).length; n++) {
+        console.log(imageClasses.map(imgClass => imgClass.name)[n] + ' data count: ' + examplesCount[n] + '. ');
       }
       window.requestAnimationFrame(dataGatherLoop);
     }
@@ -175,39 +182,43 @@ function gatherDataForClass() {
     predict = false;
     tf.util.shuffleCombo(trainingDataInputs, trainingDataOutputs);
     let outputsAsTensor = tf.tensor1d(trainingDataOutputs, 'int32');
-    let oneHotOutputs = tf.oneHot(outputsAsTensor, CLASS_NAMES.length);
+    let oneHotOutputs = tf.oneHot(outputsAsTensor, imageClasses.map(imgClass => imgClass.name).length);
     let inputsAsTensor = tf.stack(trainingDataInputs);
-    
-    let results = await model.fit(inputsAsTensor, oneHotOutputs, {shuffle: true, batchSize: 5, epochs: 10, 
-        callbacks: {onEpochEnd: logProgress} });
-    
+
+    let results = await model.fit(inputsAsTensor, oneHotOutputs, {
+      shuffle: true, batchSize: 5, epochs: 10,
+      callbacks: { onEpochEnd: logProgress }
+    });
+
     outputsAsTensor.dispose();
     oneHotOutputs.dispose();
     inputsAsTensor.dispose();
     predict = true;
     predictLoop();
   }
-  
+
   function logProgress(epoch, logs) {
     console.log('Data for epoch ' + epoch, logs);
   }
 
   function predictLoop() {
     if (predict) {
-      tf.tidy(function() {
+      tf.tidy(function () {
+        let VIDEO = camRef.current;
         let videoFrameAsTensor = tf.browser.fromPixels(VIDEO).div(255);
-        let resizedTensorFrame = tf.image.resizeBilinear(videoFrameAsTensor,[MOBILE_NET_INPUT_HEIGHT, 
-            MOBILE_NET_INPUT_WIDTH], true);
-  
+        let resizedTensorFrame = tf.image.resizeBilinear(videoFrameAsTensor, [MOBILE_NET_INPUT_HEIGHT,
+          MOBILE_NET_INPUT_WIDTH], true);
+
         let imageFeatures = mobilenet.predict(resizedTensorFrame.expandDims());
         let prediction = model.predict(imageFeatures).squeeze();
         let highestIndex = prediction.argMax().arraySync();
         let predictionArray = prediction.arraySync();
-  
-        STATUS.innerText = 'Prediction: ' + CLASS_NAMES[highestIndex] + ' with ' + Math.floor(predictionArray[highestIndex] * 100) + '% confidence';
+
+        console.log('Prediction: ' + imageClasses.map(imgClass => imgClass.name)[highestIndex] + ' with ' + Math.floor(predictionArray[highestIndex] * 100) + '% confidence');
+        // STATUS.innerText = ;
       });
-  
-      // window.requestAnimationFrame(predictLoop);
+
+      window.requestAnimationFrame(predictLoop);
     }
   }
 
@@ -216,7 +227,7 @@ function gatherDataForClass() {
  * MobileNet model and MLP head tensors as you will need to reuse 
  * them to train a new model.
  **/
-function reset() {
+  function reset() {
     predict = false;
     examplesCount.length = 0;
     for (let i = 0; i < trainingDataInputs.length; i++) {
@@ -225,8 +236,13 @@ function reset() {
     trainingDataInputs.length = 0;
     trainingDataOutputs.length = 0;
     STATUS.innerText = 'No data collected';
-    
+
     console.log('Tensors in memory: ' + tf.memory().numTensors);
+  }
+
+  async function saveModel(model) {
+    const saveResult = await model.save('downloads://my-model');
+    console.log(saveResult);
   }
 
   const displayClasses = () => {
@@ -258,7 +274,7 @@ function reset() {
   }
   return (
     <div className='background-linear-gradient'>
-      <video autoplay muted ref={camRef}></video>
+      <video autoPlay muted ref={camRef} width={200} height={200}></video>
       <div className='bg-train'>
         <div className='container'>
           <div className='row d-flex align-items-center pt-5 p-2'>
@@ -296,7 +312,7 @@ function reset() {
                       <h5 className='mt-2'>Preview</h5>
                     </div>
                     <div className='col-md-8'>
-                      <button className='btn btn-success'>
+                      <button className='btn btn-success' onClick={() => saveModel(model)}>
                         <font className='p-1 me-4'>Export Model</font>
                         <i class="fa-solid fa-arrow-up-from-bracket"></i>
                       </button>
