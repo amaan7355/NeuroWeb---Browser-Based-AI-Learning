@@ -75,7 +75,7 @@ const LoginForm = ({ setSignupOpen }) => {
                     <div className="card-body"> */}
             <form onSubmit={loginForm.handleSubmit}>
                 <h3 className="text-center mt-3">Sign in to </h3>
-                <h2 className='text-center fw-bold'>NeuroWeb</h2><hr />
+                <h2 className='text-center fw-bold text-primary'>TrainifAI</h2><hr />
 
                 <label>Email</label>
                 <input

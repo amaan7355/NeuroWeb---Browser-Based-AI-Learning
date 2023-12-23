@@ -1,10 +1,13 @@
 const express = require("express");
 const Model = require('../models/aiModel');
+const verifyToken = require("./verifyToken");
 
 const router = express.Router();
 
-router.post("/add", (req, res) => {
+router.post("/add", verifyToken, (req, res) => {
   console.log(req.body);
+  console.log(req.user);
+  req.body.user = req.user._id;
 
   new Model(req.body).save()
   .then((result) => {

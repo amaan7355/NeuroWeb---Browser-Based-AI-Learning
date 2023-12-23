@@ -17,7 +17,8 @@ const AudioClassifier = () => {
       samples: []
     },
   ])
-  let recognizer;
+
+  const [recognizer, setRecognizer] = useState(null);
 
   function predictWord() {
     // Array of words that the recognizer is trained to recognize.
@@ -33,8 +34,9 @@ const AudioClassifier = () => {
 
   async function app() {
     console.log('model loading...');
-    recognizer = window.speechCommands.create('BROWSER_FFT');
-    await recognizer.ensureModelLoaded();
+    let tempRecognizer = window.speechCommands.create('BROWSER_FFT');
+    await tempRecognizer.ensureModelLoaded();
+    setRecognizer(tempRecognizer);
     console.log('model loaded');
     // buildModel();
     //  predictWord();
@@ -164,7 +166,8 @@ const AudioClassifier = () => {
   }
 
   function listen() {
-
+    console.log(recognizer);
+    if(!recognizer) return;
     if (recognizer.isListening()) {
       recognizer.stopListening();
       toggleButtons(true);
@@ -210,6 +213,27 @@ const AudioClassifier = () => {
     const temp = audioClasses;
     temp[index].name = value;
     setAudioClasses([...temp])
+  }
+
+  async function saveModel(model) {
+    const saveResult = await model.save('downloads://my-model');
+    console.log(saveResult);
+    saveToDb();
+  }
+
+  const saveToDb = async () => {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/ai/add`, {
+      method: "POST",
+      body: JSON.stringify({
+        type : 'Image',
+        file : 'model.json',
+        createdAt: new Date()
+      }),
+      headers: {
+        'Content-type': 'application/json'
+      }
+    });
+    console.log(res.status);
   }
 
   const displayClasses = () => {
@@ -312,7 +336,7 @@ const AudioClassifier = () => {
                     <h5 className='mt-2'>Preview</h5>
                   </div>
                   <div className='col-md-8'>
-                    <button className='btn btn-success'>
+                    <button className='btn btn-success' onClick={saveModel}>
                       <font className='p-1 me-4'>Export Model</font>
                       <i class="fa-solid fa-arrow-up-from-bracket"></i>
                     </button>

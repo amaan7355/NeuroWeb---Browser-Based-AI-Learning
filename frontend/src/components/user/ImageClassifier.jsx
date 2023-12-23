@@ -197,6 +197,11 @@ const ImageClassifier = () => {
     predictLoop();
   }
 
+  // const saveModel = async () => {
+  //   const saveResult = await model.save('localstorage://my-model-1');
+  //   console.log(saveResult);
+  // }
+
   function logProgress(epoch, logs) {
     console.log('Data for epoch ' + epoch, logs);
   }
@@ -243,6 +248,22 @@ const ImageClassifier = () => {
   async function saveModel(model) {
     const saveResult = await model.save('downloads://my-model');
     console.log(saveResult);
+    saveToDb();
+  }
+
+  const saveToDb = async () => {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/ai/add`, {
+      method: "POST",
+      body: JSON.stringify({
+        type : 'Image',
+        file : 'model.json',
+        createdAt: new Date()
+      }),
+      headers: {
+        'Content-type': 'application/json'
+      }
+    });
+    console.log(res.status);
   }
 
   const displayClasses = () => {
@@ -312,7 +333,7 @@ const ImageClassifier = () => {
                       <h5 className='mt-2'>Preview</h5>
                     </div>
                     <div className='col-md-8'>
-                      <button className='btn btn-success' onClick={() => saveModel(model)}>
+                      <button className='btn btn-success' onClick={saveModel}>
                         <font className='p-1 me-4'>Export Model</font>
                         <i class="fa-solid fa-arrow-up-from-bracket"></i>
                       </button>
