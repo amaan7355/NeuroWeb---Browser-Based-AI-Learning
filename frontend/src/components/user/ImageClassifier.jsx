@@ -12,6 +12,7 @@ const CLASS_NAMES = ['new', 'old'];
 
 const ImageClassifier = () => {
   const [trainedModel, setTrainedModel] = useState(null);
+  const { token } = JSON.parse(sessionStorage.getItem('user'));
   const camRef = useRef(null);
   const [imageClasses, setImageClasses] = useState([
     {
@@ -246,8 +247,8 @@ const ImageClassifier = () => {
   }
 
   async function saveModel(model) {
-    const saveResult = await model.save('downloads://my-model');
-    console.log(saveResult);
+    // const saveResult = await model.save('downloads://my-model');
+    // console.log(saveResult);
     saveToDb();
   }
 
@@ -260,7 +261,8 @@ const ImageClassifier = () => {
         createdAt: new Date()
       }),
       headers: {
-        'Content-type': 'application/json'
+        'Content-type': 'application/json',
+        'x-auth-token' : token
       }
     });
     console.log(res.status);

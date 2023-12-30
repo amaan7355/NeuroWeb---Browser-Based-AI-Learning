@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css'
 import Main from './components/main';
 import Admin from './components/admin';
@@ -25,6 +25,7 @@ function App() {
         <SnackbarProvider>
           <AppProvider>
             <Routes>
+              <Route path='/' element={<Navigate to="/main/home" />} />
               <Route path='admin' element={<Admin />} >
                 <Route path='dashboard' element={<AdminDashboard />} />
               </Route>

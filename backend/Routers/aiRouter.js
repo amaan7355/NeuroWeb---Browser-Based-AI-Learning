@@ -5,11 +5,10 @@ const verifyToken = require("./verifyToken");
 const router = express.Router();
 
 router.post("/add", verifyToken, (req, res) => {
-  console.log(req.body);
   console.log(req.user);
-  req.body.user = req.user._id;
-
-  new Model(req.body).save()
+  console.log(req.body);
+  
+  new Model({user : req.user._id, ...req.body}).save()
   .then((result) => {
     res.json(result);
   })
