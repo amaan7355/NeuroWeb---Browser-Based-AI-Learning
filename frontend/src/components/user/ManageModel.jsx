@@ -6,7 +6,7 @@ const ManageModel = () => {
         <div className='container text-white'>
             <section id='header '>
                 <div className='manage-model'>
-                    <h1>Hello</h1>
+                    <h1>Hello There!</h1>
                 </div>
             </section>
             <div className='container mt-5'>

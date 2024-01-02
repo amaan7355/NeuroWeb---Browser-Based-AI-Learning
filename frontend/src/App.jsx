@@ -16,6 +16,7 @@ import TextClassifier from './components/user/TextClassifier';
 import ManageModel from './components/user/ManageModel';
 import ResetPassword from './components/main/ResetPassword';
 import AdminDashboard from './components/admin/AdminDashboard';
+import ManageUser from './components/admin/ManageUser';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
               <Route path='/' element={<Navigate to="/main/home" />} />
               <Route path='admin' element={<Admin />} >
                 <Route path='dashboard' element={<AdminDashboard />} />
+                <Route path='manageuser' element={<ManageUser />} />
               </Route>
               <Route path='main' element={<Main />} >
                 <Route path='home' element={<Home />} />
