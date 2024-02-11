@@ -94,7 +94,7 @@ const LoginForm = ({ setSignupOpen }) => {
                     className="form-control mb-4"
                 />
 
-                <button type="submit" className="btn btn-dark w-100 my-3">
+                <button type="submit" className="btn btn-primary w-100 my-3">
                     SignIn
                 </button>
                 <p className='text-center mt-4'>

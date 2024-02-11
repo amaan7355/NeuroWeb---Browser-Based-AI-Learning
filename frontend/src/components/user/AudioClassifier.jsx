@@ -140,7 +140,7 @@ const AudioClassifier = () => {
   }
 
   function toggleButtons(enable) {
-    document.querySelectorAll('button').forEach(b => b.disabled = !enable);
+    // document.querySelectorAll('button').forEach(b => b.disabled = !enable);
   }
 
   function flatten(tensors) {
@@ -215,7 +215,7 @@ const AudioClassifier = () => {
     setAudioClasses([...temp])
   }
 
-  async function saveModel(model) {
+  async function saveModel() {
     const saveResult = await model.save('downloads://my-model');
     console.log(saveResult);
     saveToDb();

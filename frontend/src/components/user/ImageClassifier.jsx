@@ -53,6 +53,8 @@ const ImageClassifier = () => {
   // }
 
   const collectImageData = (num) => {
+    imageClasses[num].samples.push(camRef.current.src);
+    console.log(imageClasses[num].samples);
     gatherDataState = (gatherDataState === STOP_DATA_GATHER) ? num : STOP_DATA_GATHER;
     dataGatherLoop();
 
@@ -246,9 +248,9 @@ const ImageClassifier = () => {
     console.log('Tensors in memory: ' + tf.memory().numTensors);
   }
 
-  async function saveModel(model) {
-    // const saveResult = await model.save('downloads://my-model');
-    // console.log(saveResult);
+  async function saveModel() {
+    const saveResult = await model.save('downloads://my-model');
+    console.log(saveResult);
     saveToDb();
   }
 

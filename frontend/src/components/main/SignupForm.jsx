@@ -112,7 +112,7 @@ const SignupForm = ({ setSignupOpen }) => {
               <>
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style={{ marginRight: '10px' }}></span>Loading...
               </>
-            ) : 'Submit'
+            ) : 'SignUp'
           }
         </button>
         <p className='mt-1 text-center'>
