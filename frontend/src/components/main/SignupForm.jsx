@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { enqueueSnackbar } from 'notistack';
 
+
 const SignupSchema = Yup.object().shape({
   name: Yup.string().min(5, 'min 5 characters req.').required('Name is required'),
   email: Yup.string().email('Invalid email').required('Required'),
@@ -22,7 +23,8 @@ const SignupForm = ({ setSignupOpen }) => {
     initialValues: {
       name: '',
       email: '',
-      password: ''
+      password: '',
+      createdAt : new Date(),
     },
     onSubmit: async (values, { setSubmitting }) => {
       values.avatar = selFile;
@@ -103,9 +105,10 @@ const SignupForm = ({ setSignupOpen }) => {
           Password <span style={{ color: 'red' }}> <sup>*</sup></span>
         </label>
         <input type="password" name='password' className="form-control   mb-4" placeholder="Your Password" onChange={signUpform.handleChange} value={signUpform.values.password} />
-        {/* <input type="file" className='my-3' onChange={uploadFile} />
-        <br /> */}
-        {/* <p className=' signup-tc'><input type="checkbox" className='me-2' /> I accept <span className='text-decoration-underline fw-bold'>terms and conditions</span> & <span className='text-decoration-underline fw-bold'>privacy policy</span></p> */}
+        <label className='form-label fw-bold'>Avatar</label><br />
+        <input type="file" className='mb-4' onChange={uploadFile} />
+        <br />
+         {/* <p className=' signup-tc'><input type="checkbox" className='me-2' /> I accept <span className='text-decoration-underline fw-bold'>terms and conditions</span> & <span className='text-decoration-underline fw-bold'>privacy policy</span></p> */}
         <button disabled={signUpform.isSubmitting} className="btn btn-primary w-100 mt-2 mb-4" type='submit'>
           {
             signUpform.isSubmitting ? (

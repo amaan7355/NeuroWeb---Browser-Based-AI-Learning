@@ -1,7 +1,33 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import UseAppContext from '../../Context/AppContext';
 
 const Navbar = () => {
+  const { loggedIn, logout, avatar } = UseAppContext();
+
+  const displayUserOption = () => {
+    if (loggedIn) {
+      return (
+        <>
+          <li className='nav-item'><button className='btn btn-outline-primary m-2' onClick={logout}>Logout</button></li>
+          {/* <li>
+            <img height={50} className='rounded-circle' src={"https://esportsarena.onrender.com/" + avatar} alt="avatar" />
+          </li> */}
+        </>
+      )
+    }
+    else {
+      return (
+        <>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/main/signup">
+              <button className='btn btn-outline-primary'>Sign up</button>
+            </NavLink>
+          </li>
+        </>
+      )
+    }
+  }
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -28,19 +54,19 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-              <NavLink className="nav-link me-3" to="/main/aboutus">
+                <NavLink className="nav-link me-3" to="/main/aboutus">
                   <font className='fw-bold fs-5'>About</font>
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link me-3" to="/admin/dashboard">
+                  <font className='fw-bold fs-5'>Dashboard</font>
+                </NavLink>
+              </li>
             </ul>
-            {/* <form className="d-flex" role="search"> */}
-            <Link to='/admin/dashboard'><button className="btn btn-outline button-search me-3">
-                Dashboard
-              </button></Link>
-              <Link to='/main/signup'><button className="btn btn-outline button-search">
-                signin
-              </button></Link>
-            {/* </form> */}
+            <ul className="navbar-nav ml-auto">
+              {displayUserOption()}
+            </ul>
           </div>
         </div>
       </nav>

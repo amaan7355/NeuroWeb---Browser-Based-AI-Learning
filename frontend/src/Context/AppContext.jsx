@@ -16,7 +16,7 @@ export const AppProvider = ({children}) => {
     const logout = () => {
         sessionStorage.removeItem('user');
         setLoggedIn(false);
-        navigate('/signup');
+        navigate('/main/signup');
     }
 
     const [loggedIn, setLoggedIn] = useState(currentUser!==null);
