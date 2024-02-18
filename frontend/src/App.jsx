@@ -17,6 +17,7 @@ import ManageModel from './components/user/ManageModel';
 import ResetPassword from './components/main/ResetPassword';
 import AdminDashboard from './components/admin/AdminDashboard';
 import ManageUser from './components/admin/ManageUser';
+import UserAuth from './UserAuth';
 
 function App() {
 
@@ -28,8 +29,8 @@ function App() {
             <Routes>
               <Route path='/' element={<Navigate to="/main/home" />} />
               <Route path='admin' element={<Admin />} >
-                <Route path='dashboard' element={<AdminDashboard />} />
-                <Route path='manageuser' element={<ManageUser />} />
+              <Route path='dashboard' element={<UserAuth><AdminDashboard /></UserAuth>}/>
+                <Route path='manageuser' element={<UserAuth><ManageUser /></UserAuth>} />
               </Route>
               <Route path='main' element={<Main />} >
                 <Route path='home' element={<Home />} />
@@ -41,10 +42,10 @@ function App() {
 
               <Route path='user' element={<User />} >
                 <Route path='profile' element={<Profile />} />
-                <Route path='image' element={<ImageClassifier />} />
-                <Route path='audio' element={<AudioClassifier />} />
-                <Route path='text' element={<TextClassifier />} />
-                <Route path='managemodel' element={<ManageModel />} />
+                <Route path='image' element={<UserAuth><ImageClassifier /></UserAuth>} />
+                <Route path='audio' element={<UserAuth><AudioClassifier /></UserAuth>} />
+                <Route path='text' element={<UserAuth><TextClassifier /></UserAuth>} />
+                <Route path='managemodel' element={<UserAuth><ManageModel /></UserAuth>} />
               </Route>
 
             </Routes>

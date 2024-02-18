@@ -714,7 +714,7 @@ const Home = () => {
               />{" "}
               <div className="row">
                 {" "}
-                <div className="col-lg-3 col-md-6 mb-5 mb-lg-0 position-relative">
+                <div className="col-lg-3 col-md-6 col-sm-6 mb-5 mb-lg-0 position-relative">
                   {" "}
                   <i
                     className="fas fa-cubes fa-3x text-primary mb-4"
@@ -724,7 +724,7 @@ const Home = () => {
                   <h6 className="fw-normal mb-0">Components</h6>{" "}
                   <hr className="divider-vertical d-none d-md-block" />{" "}
                 </div>{" "}
-                <div className="col-lg-3 col-md-6 mb-5 mb-lg-0 position-relative">
+                <div className="col-lg-3 col-md-6 col-sm-6 mb-5 mb-lg-0 position-relative">
                   {" "}
                   <i
                     className="fas fa-layer-group fa-3x text-primary mb-4"
@@ -734,7 +734,7 @@ const Home = () => {
                   <h6 className="fw-normal mb-0">Design blocks</h6>{" "}
                   <hr className="divider-vertical d-none d-lg-block" />{" "}
                 </div>{" "}
-                <div className="col-lg-3 col-md-6 mb-5 mb-lg-0 position-relative">
+                <div className="col-lg-3 col-md-6 col-sm-6 mb-5 mb-lg-0 position-relative">
                   {" "}
                   <i
                     className="fas fa-image fa-3x text-primary mb-4"
@@ -744,7 +744,7 @@ const Home = () => {
                   <h6 className="fw-normal mb-0">Templates</h6>{" "}
                   <hr className="divider-vertical d-none d-md-block" />{" "}
                 </div>{" "}
-                <div className="col-lg-3 col-md-6 mb-4 mb-lg-0 position-relative">
+                <div className="col-lg-3 col-md-6 col-sm-6 mb-4 mb-lg-0 position-relative">
                   {" "}
                   <i
                     className="fas fa-plug fa-3x text-primary mb-4"
@@ -812,8 +812,7 @@ const Home = () => {
                 </div>
                 {/* Grid column */}
                 {/* Grid column */}
-                <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                  {/* Links */}
+                {/* <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                   <h6 className="text-uppercase fw-bold mb-4">Products</h6>
                   <p>
                     <a href="#!" className="text-reset">
@@ -835,10 +834,27 @@ const Home = () => {
                       Laravel
                     </a>
                   </p>
+                </div> */}
+                {/* Grid column */}
+                {/* Grid column */}
+                <div className="col-md-4 col-sm-6 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                  {/* Links */}
+                  <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
+                  <p>
+                    <i className="fas fa-home me-3" /> New York, NY 10012, US
+                  </p>
+                  <p>
+                    <i className="fas fa-envelope me-3" />
+                    info@example.com
+                  </p>
+                  <p>
+                    <i className="fas fa-phone me-3" /> + 01 234 567 88
+                  </p>
+                  <p>
+                    <i className="fas fa-print me-3" /> + 01 234 567 89
+                  </p>
                 </div>
-                {/* Grid column */}
-                {/* Grid column */}
-                <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <div className="col-md-4 col-sm-6 col-lg-2 col-xl-2 mx-auto mb-4">
                   {/* Links */}
                   <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
                   <p>
@@ -864,23 +880,7 @@ const Home = () => {
                 </div>
                 {/* Grid column */}
                 {/* Grid column */}
-                <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                  {/* Links */}
-                  <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-                  <p>
-                    <i className="fas fa-home me-3" /> New York, NY 10012, US
-                  </p>
-                  <p>
-                    <i className="fas fa-envelope me-3" />
-                    info@example.com
-                  </p>
-                  <p>
-                    <i className="fas fa-phone me-3" /> + 01 234 567 88
-                  </p>
-                  <p>
-                    <i className="fas fa-print me-3" /> + 01 234 567 89
-                  </p>
-                </div>
+                
                 {/* Grid column */}
               </div>
               {/* Grid row */}

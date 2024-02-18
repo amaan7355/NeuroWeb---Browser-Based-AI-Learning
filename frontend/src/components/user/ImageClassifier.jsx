@@ -11,6 +11,10 @@ const STOP_DATA_GATHER = -1;
 const CLASS_NAMES = ['new', 'old'];
 
 const ImageClassifier = () => {
+
+  const [numEpochs, setNumEpochs] = useState(10);
+  const [numBatchsize, setnumBatchsize] = useState(5);
+
   const [trainedModel, setTrainedModel] = useState(null);
   const { token } = JSON.parse(sessionStorage.getItem('user'));
   const camRef = useRef(null);
@@ -189,7 +193,7 @@ const ImageClassifier = () => {
     let inputsAsTensor = tf.stack(trainingDataInputs);
 
     let results = await model.fit(inputsAsTensor, oneHotOutputs, {
-      shuffle: true, batchSize: 5, epochs: 10,
+      shuffle: true, batchSize: numBatchsize, epochs: numEpochs,
       callbacks: { onEpochEnd: logProgress }
     });
 
@@ -258,13 +262,13 @@ const ImageClassifier = () => {
     const res = await fetch(`${import.meta.env.VITE_API_URL}/ai/add`, {
       method: "POST",
       body: JSON.stringify({
-        type : 'Image',
-        file : 'model.json',
+        type: 'Image',
+        file: 'model.json',
         createdAt: new Date()
       }),
       headers: {
         'Content-type': 'application/json',
-        'x-auth-token' : token
+        'x-auth-token': token
       }
     });
     console.log(res.status);
@@ -317,11 +321,26 @@ const ImageClassifier = () => {
                     <hr style={{ color: "#A9A9A9" }} />
                     <button className='btn btn-light w-100 p-2' style={{ textAlign: "left" }}>
                       <div className='row'>
-                        <div className='col-md-6'>
-                          <h7>Advanced</h7>
-                        </div>
-                        <div className='col-md-6'>
-                          <i className="fa-solid fa-angle-down pt-2" style={{ display: "flex", justifyContent: "right" }}></i>
+                        <div className=''>
+                          <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                  Advanced
+                                </button>
+                              </h2>
+                              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                  <div>
+                                    <label for="epochs" class="form-label">Number of Epochs</label>
+                                    <input type="number" id='epochs' className='form-control' value={numEpochs} onChange={e => setNumEpochs(e.target.value)} />
+                                    <label for="batchsize" class='formlabel'>Number of Batch Size</label>
+                                    <input type="number" id='batchsize' className='form-control' value={numBatchsize} onChange={e => setnumBatchsize(e.target.value)} />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </button>

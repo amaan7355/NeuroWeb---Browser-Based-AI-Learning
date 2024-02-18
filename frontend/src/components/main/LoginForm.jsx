@@ -77,7 +77,7 @@ const LoginForm = ({ setSignupOpen }) => {
                 <h3 className="text-center mt-3">Sign in to </h3>
                 <h2 className='text-center fw-bold text-primary'>TrainifAI</h2><hr />
 
-                <label>Email</label>
+                <label className='fw-bold'>Email</label>
                 <input
                     id="email"
                     onChange={loginForm.handleChange}
@@ -85,7 +85,7 @@ const LoginForm = ({ setSignupOpen }) => {
                     type="email"
                     className="form-control mb-4"
                 />
-                <label>Password</label>
+                <label className='fw-bold'>Password</label>
                 <input
                     id="password"
                     onChange={loginForm.handleChange}
