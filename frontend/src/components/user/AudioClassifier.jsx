@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
 const AudioClassifier = () => {
+
+  const [numEpochs, setNumEpochs] = useState(10);
+  const [numBatchsize, setnumBatchsize] = useState(5);
+  
   const [trainedModel, setTrainedModel] = useState(null);
   const [accuracyValue, setAccuracyValue] = useState(0);
 
@@ -45,7 +49,7 @@ const AudioClassifier = () => {
   useEffect(() => {
     app();
   }, [])
-  
+
 
   // app();
 
@@ -167,7 +171,7 @@ const AudioClassifier = () => {
 
   function listen() {
     console.log(recognizer);
-    if(!recognizer) return;
+    if (!recognizer) return;
     if (recognizer.isListening()) {
       recognizer.stopListening();
       toggleButtons(true);
@@ -225,8 +229,8 @@ const AudioClassifier = () => {
     const res = await fetch(`${import.meta.env.VITE_API_URL}/ai/add`, {
       method: "POST",
       body: JSON.stringify({
-        type : 'Image',
-        file : 'model.json',
+        type: 'Image',
+        file: 'model.json',
         createdAt: new Date()
       }),
       headers: {
@@ -241,7 +245,7 @@ const AudioClassifier = () => {
       return <div className='card shadow rounded-4 mb-4'>
         <div className='card-body'>
           <div className="d-flex justify-content-between align-items-center">
-            <input type="text" value={classObj.name} onChange={e => renameClass(index, e.target.value)} className='form-control w-75 fw-semibold fs-4' style={{border: "none"}} />  <i className="fa-solid fa-pen me-5"></i>
+            <input type="text" value={classObj.name} onChange={e => renameClass(index, e.target.value)} className='form-control w-75 fw-semibold fs-4' style={{ border: "none" }} />  <i className="fa-solid fa-pen me-5"></i>
             {
               !classObj.default &&
               <button className='btn btn-danger' onClick={() => removeClass(index)}>
@@ -316,11 +320,26 @@ const AudioClassifier = () => {
                   <hr style={{ color: "#A9A9A9" }} />
                   <button className='btn btn-light w-100 p-2' style={{ textAlign: "left" }}>
                     <div className='row'>
-                      <div className='col-md-6'>
-                        <h7>Advanced</h7>
-                      </div>
-                      <div className='col-md-6'>
-                        <i className="fa-solid fa-angle-down pt-2" style={{ display: "flex", justifyContent: "right" }}></i>
+                      <div className=''>
+                        <div class="accordion" id="accordionExample">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Advanced
+                              </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                              <div class="accordion-body">
+                                <div>
+                                  <label for="epochs" class="form-label">Number of Epochs</label>
+                                  <input type="number" id='epochs' className='form-control' value={numEpochs} onChange={e => setNumEpochs(e.target.value)} />
+                                  <label for="batchsize" class='formlabel'>Number of Batch Size</label>
+                                  <input type="number" id='batchsize' className='form-control' value={numBatchsize} onChange={e => setnumBatchsize(e.target.value)} />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </button>
