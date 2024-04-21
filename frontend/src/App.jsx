@@ -18,6 +18,7 @@ import ResetPassword from './components/main/ResetPassword';
 import AdminDashboard from './components/admin/AdminDashboard';
 import ManageUser from './components/admin/ManageUser';
 import UserAuth from './UserAuth';
+import PoseClassifier from './components/user/PoseClassifier';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
                 <Route path='image' element={<UserAuth><ImageClassifier /></UserAuth>} />
                 <Route path='audio' element={<UserAuth><AudioClassifier /></UserAuth>} />
                 <Route path='text' element={<UserAuth><TextClassifier /></UserAuth>} />
+                <Route path='pose' element={<UserAuth><PoseClassifier /></UserAuth>} />
                 <Route path='managemodel' element={<UserAuth><ManageModel /></UserAuth>} />
               </Route>
 
