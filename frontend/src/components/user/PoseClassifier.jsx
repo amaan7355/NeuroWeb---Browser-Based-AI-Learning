@@ -2,6 +2,12 @@ import React from 'react';
 
 const PoseClassifier = () => {
 
+    const script = document.createElement('script');
+    script.src = './fingerpose.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+
     const config = {
         video: { width: 640, height: 480, fps: 30 }
       }
