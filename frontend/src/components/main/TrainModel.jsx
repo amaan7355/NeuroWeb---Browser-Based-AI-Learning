@@ -21,7 +21,7 @@ const TrainModel = () => {
                                 <p className="card-text fs-5">
                                     Train a model to classify images.
                                 </p>
-                                <a href='/user/image' className='btn btn-primary w-100'>Start Training</a>
+                                <a href='/user/image' className='btn btn-primary w-100'>Start Project</a>
                             </div>
                             {/* <div className="card-footer">
                       <small className="text-muted">Last updated 3 mins ago</small>
@@ -31,7 +31,7 @@ const TrainModel = () => {
                     <div className="col">
                         <div className="card shadow h-100" style={{ border: "none" }}>
                             <img
-                                src="https://blogs.rstudio.com/ai/posts/2019-02-07-audio-background/images/waves2.png"
+                                src="https://miro.medium.com/v2/resize:fit:750/1*UkUrFRCoBKDrboTzjN9Dfw.jpeg"
                                 className="card-img-top"
                                 alt="Los Angeles Skyscrapers"
                                 height={"280rem"}
@@ -41,7 +41,7 @@ const TrainModel = () => {
                                 <p className="card-text fs-5">
                                     Train a model to classify audio.
                                 </p>
-                                <a href='/user/audio' className='btn btn-primary w-100'>Start Training</a>
+                                <a href='/user/audio' className='btn btn-primary w-100'>Start Project</a>
                             </div>
                             {/* <div className="card-footer">
                       <small className="text-muted">Last updated 3 mins ago</small>
@@ -51,17 +51,17 @@ const TrainModel = () => {
                     <div className="col">
                         <div className="card shadow h-100" style={{ border: "none" }}>
                             <img
-                                src="https://images.contentstack.io/v3/assets/blt71da4c740e00faaa/blt39bd7d9de4c1b70f/62b4fe184de82610183d7390/text-classification-applications.png"
+                                src="https://developers.google.com/static/mediapipe/images/solutions/gesture-recognizer.png"
                                 className="card-img-top"
                                 alt="Palm Springs Road"
                                 height={"280rem"}
                             />
                             <div className="card-body">
-                                <h4 className="card-title fw-bold">Text Project</h4>
+                                <h4 className="card-title fw-bold">Pose Project</h4>
                                 <p className="card-text fs-5">
-                                    Train a model to classify text.
+                                    Train a model to classify pose.
                                 </p>
-                                <a href='/user/text' className='btn btn-primary w-100'>Start Training</a>
+                                <a href='/user/pose' className='btn btn-primary w-100'>Start Project</a>
                             </div>
                             {/* <div className="card-footer">
                       <small className="text-muted">Last updated 3 mins ago</small>

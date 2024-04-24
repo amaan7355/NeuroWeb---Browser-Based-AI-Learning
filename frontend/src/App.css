@@ -90,8 +90,8 @@
 .manage-model {
   background: rgb(152, 74, 196);
   background: linear-gradient(90deg, rgba(152, 74, 196, 1) 11%, rgba(81, 18, 153, 1) 39%, rgba(117, 18, 153, 1) 56%, rgba(91, 25, 155, 1) 69%, rgba(152, 74, 196, 1) 88%);
-  height: 8rem;
-  padding: 2rem;
+  height: 6rem;
+  padding: 1.5rem;
 }
 
 * {
@@ -103,7 +103,6 @@ html,
 body {
   width: 100%;
   height: 100%;
-  overflow: hidden;
   font-family: Arial, sans-serif;
   background-color: #ffffff;
   color: #333333;

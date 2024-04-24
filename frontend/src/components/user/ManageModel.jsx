@@ -21,12 +21,13 @@ const ManageModel = () => {
 
 
     return (
-        <div className='container text-white'>
-            <section id='header '>
-                <div className='manage-model'>
-                    <h1>Hello There!</h1>
+        <div className='container'>
+            <section id='header'>
+                <div className='manage-model mb-5'>
+                    <h1 className='text-white'>Hello There!</h1>
                 </div>
             </section>
+            <h1 className='text-center'>hello</h1>
             <div className='container mt-5'>
                 <MDBTable align='middle'>
                     <MDBTableHead>
