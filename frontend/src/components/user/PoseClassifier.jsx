@@ -62,8 +62,16 @@ function drawPoint(ctx, x, y, r, color) {
   ctx.fill()
 }
 
-function updateDebugInfo(data, hand) {
+function updateDebugInfo(data, hand, setRightHand, setLeftHand) {
+  if (hand === 'left') {
+    console.log(hand);
+    setLeftHand(data);
+  } else {
+    console.log(hand);
+    setRightHand(data);
+  }
   const summaryTable = `#summary-${hand}`
+  // console.log(data);
   for (let fingerIdx in data) {
     document.querySelector(`${summaryTable} span#curl-${fingerIdx}`).innerHTML = data[fingerIdx][1]
     document.querySelector(`${summaryTable} span#dir-${fingerIdx}`).innerHTML = data[fingerIdx][2]
@@ -139,7 +147,7 @@ const PoseClassifier = () => {
           })
           const chosenHand = hand.handedness.toLowerCase()
           resultLayer[chosenHand].innerText = gestureStrings[result.name]
-          updateDebugInfo(est.poseData, chosenHand)
+          updateDebugInfo(est.poseData, chosenHand, setRightHand, setLeftHand)
         }
 
       }
@@ -173,6 +181,10 @@ const PoseClassifier = () => {
 
   }
 
+  const setPoseIcon = (setHand, text) => {
+
+  }
+
 
   return (
     <div className="container">
@@ -198,56 +210,22 @@ const PoseClassifier = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>0</td>
-              <td>Thumb</td>
-              <td>
-                <span id="curl-0">-</span>
-              </td>
-              <td>
-                <span id="dir-0">-</span>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Index</td>
-              <td>
-                <span id="curl-1">-</span>
-              </td>
-              <td>
-                <span id="dir-1">-</span>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Middle</td>
-              <td>
-                <span id="curl-2">-</span>
-              </td>
-              <td>
-                <span id="dir-2">-</span>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Ring</td>
-              <td>
-                <span id="curl-3">-</span>
-              </td>
-              <td>
-                <span id="dir-3">-</span>
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Pinky</td>
-              <td>
-                <span id="curl-4">-</span>
-              </td>
-              <td>
-                <span id="dir-4">-</span>
-              </td>
-            </tr>
+            {
+              Object.keys(leftHand).map((key, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{index}</td>
+                    <td>{key}</td>
+                    <td>
+                      <span id={`curl-${index}`}>{leftHand[key]}</span>
+                    </td>
+                    <td>
+                      <span id={`dir-${index}`}>-</span>
+                    </td>
+                  </tr>
+                )
+              })
+            }
           </tbody>
         </table>
         <br />
@@ -262,56 +240,22 @@ const PoseClassifier = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>0</td>
-              <td>Thumb</td>
-              <td>
-                <span id="curl-0">-</span>
-              </td>
-              <td>
-                <span id="dir-0">-</span>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Index</td>
-              <td>
-                <span id="curl-1">-</span>
-              </td>
-              <td>
-                <span id="dir-1">-</span>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Middle</td>
-              <td>
-                <span id="curl-2">-</span>
-              </td>
-              <td>
-                <span id="dir-2">-</span>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Ring</td>
-              <td>
-                <span id="curl-3">-</span>
-              </td>
-              <td>
-                <span id="dir-3">-</span>
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Pinky</td>
-              <td>
-                <span id="curl-4">-</span>
-              </td>
-              <td>
-                <span id="dir-4">-</span>
-              </td>
-            </tr>
+            {
+              Object.keys(rightHand).map((key, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{index}</td>
+                    <td>{key}</td>
+                    <td>
+                      <span id={`curl-${index}`}>{rightHand[key]}</span>
+                    </td>
+                    <td>
+                      <span id={`dir-${index}`}>-</span>
+                    </td>
+                  </tr>
+                )
+              })
+            }
           </tbody>
         </table>
       </div>

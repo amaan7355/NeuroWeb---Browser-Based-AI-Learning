@@ -43,7 +43,7 @@ return (
                             <span className='display-6' style={{ color: 'white', fontWeight: 'bold', }}>
                               {/* Style will be inherited from the parent element */}
                               <Typewriter
-                                words={['Image Model Training', 'Audio Model Training', 'Text Model Training']}
+                                words={['Image Model Training', 'Audio Model Training', 'Gesture Recognition']}
                                 loop={500}
                                 cursor
                                 // cursorStyle='_'
@@ -57,7 +57,7 @@ return (
                             </span>
                             
                         </div>
-                        <h3 className=' mb-4 display-7 fw-bold ls-tight' style={{ color: "hsl(220, 81%, 86%)" }}>"Personalize Your AI: Educate Your System on Images, Sounds, and Texts"</h3>
+                        <h3 className=' mb-4 display-7 fw-bold ls-tight' style={{ color: "hsl(220, 81%, 86%)" }}>"Personalize Your AI: Educate Your System on Images, Sounds, and Gestures"</h3>
                         
                         <div className="d-md-flex flex-row">
                           {" "}
@@ -236,7 +236,7 @@ return (
 
           <div className='container my-4'>
             <h2 className="mb-4 display-3 fw-bold ls-tight text-center my-5">
-              <span>What Model Training we offer?</span> <br />
+              <span>What Model Training we offer?</span><br />
               <span className="text-primary"></span>
             </h2>
             <div className="row row-cols-1 row-cols-md-3 g-4 my-4 p-3">
