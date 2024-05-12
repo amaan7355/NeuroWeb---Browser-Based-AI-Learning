@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 const config = {
   video: { width: 640, height: 480, fps: 30 }
 }
@@ -95,6 +95,15 @@ const PoseClassifier = () => {
     ring: '',
     pinky: ''
   })
+  console.log(rightHand);
+
+  const nameRef = useRef(null);
+
+  const [selGesture, setSelGesture] = useState(null);
+  const [gestureNames, setGestureNames] = useState({
+    left: ['-', '-', '-', '-', '-'],
+    right: ['-', '-', '-', '-', '-']
+  });
 
   async function main() {
 
@@ -185,10 +194,46 @@ const PoseClassifier = () => {
 
   }
 
+  const checkGesture = (hand) => {
+    console.log(hand);
+    if(!hand.length) return null;
+    if (hand[0][0] === 'Thumb' && hand[0][1] === 'No Curl' && hand[0][2] === 'Vertical Up') {
+      return 0;
+    } else if (hand[1][0] === 'Index' && hand[1][1] === 'Full Curl' && hand[1][2] === 'Diagonal Up Left') {
+      return 1;
+    } else if (hand[2][0] === 'Middle' && hand[2][1] === 'Full Curl' && hand[2][2] === 'Diagonal Up Left') {
+      return 2;
+    } else if (hand[3][0] === 'Ring' && hand[3][1] === 'Full Curl' && hand[3][2] === 'Diagonal Down Left') {
+      return 3;
+    } else if (hand[4][0] === 'Pinky' && hand[4][1] === 'Full Curl' && hand[4][2] === 'Diagonal Down Left') {
+      return 4;
+    }
+  }
+
+  const setGesture = () => {
+    const value = nameRef.current.value;
+    if (!value) {
+      return;
+    }
+    let temp = gestureNames;
+    if (true) {
+      if(checkGesture(rightHand) === null) 
+        return;
+      temp[checkGesture(rightHand)] = value;
+    } else {
+      if(checkGesture(leftHand) === null)
+        return;
+      temp[checkGesture(leftHand)] = value;
+    }
+    console.log(temp);
+
+    setGestureNames(temp);
+  }
+
 
   return (
-    <div className="container">
-      <button onClick={run} className='btn btn-primary'><font className='fs-5'>Start Post Estimator</font></button>
+    <div className="container1 mx-5">
+      <button onClick={run} className='btn btn-primary' style={{ width: "120px", height: "200px" }}><font className='fs-5'>Start Post Estimator</font></button>
       <div className="video">
         <div id="video-container">
           <video id="pose-video" className="layer" playsInline="" />
@@ -199,6 +244,12 @@ const PoseClassifier = () => {
         </div>
       </div>
       <div className="debug">
+        <div className="input-group">
+          <input type="text" className='form-control' ref={nameRef} />
+          <div className='input-group-append'>
+            <button className='btn btn-primary' onClick={setGesture}>Add Gesture Name</button>
+          </div>
+        </div>
         <h2>Left Hand</h2>
         <table id="summary-left" className="summary">
           <thead>
@@ -207,6 +258,7 @@ const PoseClassifier = () => {
               <th>Finger</th>
               <th style={{ width: 110 }}>Curl</th>
               <th style={{ width: 170 }}>Direction</th>
+              <th style={{ width: 170 }}>Gesture Name</th>
             </tr>
           </thead>
           <tbody>
@@ -221,6 +273,9 @@ const PoseClassifier = () => {
                     </td>
                     <td>
                       <span id={`dir-${index}`}>-</span>
+                    </td>
+                    <td>
+                      <span>{gestureNames.left[index]}</span>
                     </td>
                   </tr>
                 )
@@ -237,6 +292,7 @@ const PoseClassifier = () => {
               <th>Finger</th>
               <th style={{ width: 110 }}>Curl</th>
               <th style={{ width: 170 }}>Direction</th>
+              <th style={{ width: 170 }}>Gesture Name</th>
             </tr>
           </thead>
           <tbody>
@@ -251,6 +307,9 @@ const PoseClassifier = () => {
                     </td>
                     <td>
                       <span id={`dir-${index}`}>-</span>
+                    </td>
+                    <td>
+                      <span>{gestureNames.right[index]}</span>
                     </td>
                   </tr>
                 )
