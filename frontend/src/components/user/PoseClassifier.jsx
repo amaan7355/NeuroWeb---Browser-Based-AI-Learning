@@ -105,6 +105,29 @@ const PoseClassifier = () => {
     right: ['-', '-', '-', '-', '-']
   });
 
+  const MyGesture = {
+    name: 'MyGesture',
+    fingerprints: [
+      { // Fingerprint 0
+        position: {
+          thumb: [0, 1, 0],
+          index: [0, 1, 0],
+          middle: [0, 1, 0],
+          ring: [0, 1, 0],
+          pinky: [0, 1, 0], // [flexion, abduction, adduction]
+        },
+        rotation: {
+          thumb: [0, 0],
+          index: [0, 0],
+          middle: [0, 0],
+          ring: [0, 0],
+          pinky: [0, 0], // [flexion, abduction]
+        },
+        handedness: 0, // 0 for right hand, 1 for left hand
+      },
+    ],
+  };
+
   async function main() {
 
     const video = document.querySelector("#pose-video")
@@ -119,7 +142,9 @@ const PoseClassifier = () => {
     // add "✌🏻" and "👍" as sample gestures
     const knownGestures = [
       fp.Gestures.VictoryGesture,
-      fp.Gestures.ThumbsUpGesture
+      fp.Gestures.ThumbsUpGesture,
+      // MyGesture
+      createNewGesture('thumbs-down')
     ]
     const GE = new fp.GestureEstimator(knownGestures)
     // load handpose model
@@ -186,8 +211,16 @@ const PoseClassifier = () => {
     const canvas = document.querySelector("#pose-canvas")
     canvas.width = config.video.width
     canvas.height = config.video.height
-    console.log("Canvas initialized")
+    console.log("Canvas initialized");
+    console.log(fp.Gestures.VictoryGesture);
 
+  }
+
+  const createNewGesture = (gesture_name) => {
+    const gesture = new fp.GestureDescription(gesture_name);
+    gesture.addCurl(fp.Finger.Thumb, fp.FingerCurl.NoCurl);
+    gesture.addDirection(fp.Finger.Thumb, fp.FingerDirection.VerticalDown, 1.0);
+    return gesture
   }
 
   const setPoseIcon = (setHand, text) => {
@@ -196,7 +229,7 @@ const PoseClassifier = () => {
 
   const checkGesture = (hand) => {
     console.log(hand);
-    if(!hand.length) return null;
+    if (!hand.length) return null;
     if (hand[0][0] === 'Thumb' && hand[0][1] === 'No Curl' && hand[0][2] === 'Vertical Up') {
       return 0;
     } else if (hand[1][0] === 'Index' && hand[1][1] === 'Full Curl' && hand[1][2] === 'Diagonal Up Left') {
@@ -217,18 +250,23 @@ const PoseClassifier = () => {
     }
     let temp = gestureNames;
     if (true) {
-      if(checkGesture(rightHand) === null) 
+      if (checkGesture(rightHand) === null)
         return;
       temp[checkGesture(rightHand)] = value;
     } else {
-      if(checkGesture(leftHand) === null)
+      if (checkGesture(leftHand) === null)
         return;
       temp[checkGesture(leftHand)] = value;
     }
     console.log(temp);
 
+
     setGestureNames(temp);
   }
+
+  useEffect(() => {
+    console.log(rightHand);
+  }, [rightHand])
 
 
   return (

@@ -57,9 +57,9 @@ const TrainModel = () => {
                                 height={"280rem"}
                             />
                             <div className="card-body">
-                                <h4 className="card-title fw-bold">Pose Project</h4>
+                                <h4 className="card-title fw-bold">Hand Gesture Project</h4>
                                 <p className="card-text fs-5">
-                                    Train a model to classify pose.
+                                    Train a model to classify hand gestures.
                                 </p>
                                 <a href='/user/pose' className='btn btn-primary w-100'>Start Project</a>
                             </div>

@@ -43,7 +43,7 @@ return (
                             <span className='display-6' style={{ color: 'white', fontWeight: 'bold', }}>
                               {/* Style will be inherited from the parent element */}
                               <Typewriter
-                                words={['Image Model Training', 'Audio Model Training', 'Gesture Recognition']}
+                                words={['Image Model Training', 'Audio Model Training', 'Hand Gesture Recognition']}
                                 loop={500}
                                 cursor
                                 // cursorStyle='_'
@@ -57,7 +57,7 @@ return (
                             </span>
                             
                         </div>
-                        <h3 className=' mb-4 display-7 fw-bold ls-tight' style={{ color: "hsl(220, 81%, 86%)" }}>"Personalize Your AI: Educate Your System on Images, Sounds, and Gestures"</h3>
+                        <h3 className=' mb-4 display-7 fw-bold ls-tight' style={{ color: "hsl(220, 81%, 86%)" }}>"Personalize Your AI: Educate Your System on Images, Sounds, and Hand Gestures"</h3>
                         
                         <div className="d-md-flex flex-row">
                           {" "}
@@ -225,7 +225,7 @@ return (
                       <span className="text-primary"></span>{" "}
                     </h2>{" "}
                     <p className="text-muted lead fs-3">
-                      "TrainifAI is an innovative MERN-based platform revolutionizing AI training. It enables users to upload diverse datasets effortlessly via a website interface and trains image, audio, and text classification models directly within their browser. The platform's standout feature lies in its offline functionality, ensuring uninterrupted model training, even without an internet connection. With TrainifAI, users experience a seamless and accessible way to develop AI models at their convenience."
+                      "TrainifAI is an innovative MERN-based platform revolutionizing AI training. It enables users to upload diverse datasets effortlessly via a website interface and trains image, audio classification models and Hand Gestures directly within their browser. The platform's standout feature lies in its offline functionality, ensuring uninterrupted model training, even without an internet connection. With TrainifAI, users experience a seamless and accessible way to develop AI models at their convenience."
                     </p>{" "}
                   </div>{" "}
                 </div>{" "}
@@ -281,15 +281,15 @@ return (
               <div className="col">
                 <div className="card border-dark h-100" style={{ border: "none" }}>
                   <img
-                    src="/text_classifier.gif"
+                    src="https://raw.githubusercontent.com/gist/TheJLifeX/74958cc59db477a91837244ff598ef4a/raw/088f3995801c58f79f0a79086f1cd4cc176396d3/00-hand-gesture-recognition.gif"
                     className="card-img-top"
                     alt="Palm Springs Road"
                     height={"280rem"}
                   />
                   <div className="card-body">
-                    <h4 className="card-title fw-bold">Text Classification Model Training</h4>
+                    <h4 className="card-title fw-bold">Hand Gesture Recognition</h4>
                     <p className="card-text fs-5">
-                      Train a model to classify text by uploading text files.
+                      Train a model to classify hand pose by uploading hand gestures.
                     </p>
                   </div>
                   {/* <div className="card-footer">

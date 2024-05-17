@@ -15,6 +15,9 @@ const ImageClassifier = () => {
   const [numEpochs, setNumEpochs] = useState(10);
   const [numBatchsize, setnumBatchsize] = useState(5);
 
+  const [prediction, setPrediction] = useState('');
+  const [confidence, setConfidence] = useState('');
+
   const [trainedModel, setTrainedModel] = useState(null);
   const { token } = JSON.parse(sessionStorage.getItem('user'));
   const camRef = useRef(null);
@@ -226,6 +229,8 @@ const ImageClassifier = () => {
         let highestIndex = prediction.argMax().arraySync();
         let predictionArray = prediction.arraySync();
 
+        setPrediction(imageClasses.map(imgClass => imgClass.name)[highestIndex]);
+        setConfidence(Math.floor(predictionArray[highestIndex] * 100));
         console.log('Prediction: ' + imageClasses.map(imgClass => imgClass.name)[highestIndex] + ' with ' + Math.floor(predictionArray[highestIndex] * 100) + '% confidence');
         // STATUS.innerText = ;
       });
@@ -364,6 +369,7 @@ const ImageClassifier = () => {
                   </div>
                   <hr style={{ color: "#A9A9A9" }} />
                   <p className='text-muted mt-2 p-1 fw-medium'>You must train a model on the left before you can preview it here.</p>
+                  <p>{prediction} with {confidence}%</p>
                 </div>
               </div>
             </div>
