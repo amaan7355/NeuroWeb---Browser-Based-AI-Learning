@@ -12,11 +12,6 @@ const landmarkColors = {
   wrist: 'white'
 }
 
-const gestureStrings = {
-  'thumbs_up': '👍',
-  'victory': '✌🏻'
-}
-
 async function createDetector() {
   return window.handPoseDetection.createDetector(
     window.handPoseDetection.SupportedModels.MediaPipeHands,
@@ -80,6 +75,11 @@ function updateDebugInfo(data, hand, setRightHand, setLeftHand) {
 
 const PoseClassifier = () => {
 
+  const [gestureStrings, setGestureStrings] = useState({
+    'thumbs_up': '👍',
+    'victory': '✌🏻'
+  });
+
   const [rightHand, setRightHand] = useState({
     thumb: '',
     index: '',
@@ -140,11 +140,13 @@ const PoseClassifier = () => {
     }
     // configure gesture estimator
     // add "✌🏻" and "👍" as sample gestures
+    // console.log(fp.Gestures.ThumbsUpGesture);
+
     const knownGestures = [
       fp.Gestures.VictoryGesture,
       fp.Gestures.ThumbsUpGesture,
       // MyGesture
-      createNewGesture('thumbs-down')
+      createNewGesture('thumbs-down'),
     ]
     const GE = new fp.GestureEstimator(knownGestures)
     // load handpose model
@@ -283,7 +285,16 @@ const PoseClassifier = () => {
       </div>
       <div className="debug">
         <div className="input-group">
-          <input type="text" className='form-control' ref={nameRef} />
+          <select type="text" className='form-control' ref={nameRef} >
+            <option value="">Select Gesture</option>
+            {
+              gestureStrings.map((gesture, index) => {
+                return (
+                  <option key={index} value={gesture.name}>{gesture.icon}</option>
+                )
+              })
+            }
+          </select>
           <div className='input-group-append'>
             <button className='btn btn-primary' onClick={setGesture}>Add Gesture Name</button>
           </div>
@@ -296,7 +307,7 @@ const PoseClassifier = () => {
               <th>Finger</th>
               <th style={{ width: 110 }}>Curl</th>
               <th style={{ width: 170 }}>Direction</th>
-              <th style={{ width: 170 }}>Gesture Name</th>
+              {/* <th style={{ width: 170 }}>Gesture Name</th> */}
             </tr>
           </thead>
           <tbody>
@@ -312,9 +323,9 @@ const PoseClassifier = () => {
                     <td>
                       <span id={`dir-${index}`}>-</span>
                     </td>
-                    <td>
+                    {/* <td>
                       <span>{gestureNames.left[index]}</span>
-                    </td>
+                    </td> */}
                   </tr>
                 )
               })
@@ -330,7 +341,7 @@ const PoseClassifier = () => {
               <th>Finger</th>
               <th style={{ width: 110 }}>Curl</th>
               <th style={{ width: 170 }}>Direction</th>
-              <th style={{ width: 170 }}>Gesture Name</th>
+              {/* <th style={{ width: 170 }}>Gesture Name</th> */}
             </tr>
           </thead>
           <tbody>
@@ -346,9 +357,9 @@ const PoseClassifier = () => {
                     <td>
                       <span id={`dir-${index}`}>-</span>
                     </td>
-                    <td>
+                    {/* <td>
                       <span>{gestureNames.right[index]}</span>
-                    </td>
+                    </td> */}
                   </tr>
                 )
               })
