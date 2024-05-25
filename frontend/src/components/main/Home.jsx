@@ -358,15 +358,17 @@ return (
                             /year
                           </small>{" "}
                         </h3>{" "}
-                        <button
+                        <a
                           type="button"
                           className="btn btn-link w-100 mb-3"
                           style={{ backgroundColor: "hsl(0, 0%, 95%)" }}
                           data-ripple-color="primary"
                           fdprocessedid="bofhpj"
+                          href="https://buy.stripe.com/test_4gweVF3GD1SH7NSfYY"
+                          target='blank'
                         >
                           Buy
-                        </button>{" "}
+                        </a>{" "}
                       </div>{" "}
                       <div className="card-body">
                         {" "}
@@ -408,13 +410,15 @@ return (
                             /year
                           </small>{" "}
                         </h3>{" "}
-                        <button
+                        <a
                           type="button"
                           className="btn btn-primary w-100 mb-3"
                           fdprocessedid="ibc1nyv"
+                          href="https://buy.stripe.com/test_4gweVF3GD1SH7NSfYY"
+                          target='blank'
                         >
                           Buy
-                        </button>{" "}
+                        </a>{" "}
                       </div>{" "}
                       <div className="card-body">
                         {" "}
