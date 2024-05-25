@@ -77,7 +77,8 @@ const PoseClassifier = () => {
 
   const [gestureStrings, setGestureStrings] = useState({
     'thumbs_up': '👍',
-    'victory': '✌🏻'
+    'victory': '✌🏻',
+    'thumbs-down': '👎'
   });
 
   const [rightHand, setRightHand] = useState({
@@ -182,6 +183,7 @@ const PoseClassifier = () => {
             return (p.score > c.score) ? p : c
           })
           const chosenHand = hand.handedness.toLowerCase()
+          console.log(result);
           resultLayer[chosenHand].innerText = gestureStrings[result.name]
           updateDebugInfo(est.poseData, chosenHand, setRightHand, setLeftHand)
         }
@@ -287,13 +289,13 @@ const PoseClassifier = () => {
         <div className="input-group">
           <select type="text" className='form-control' ref={nameRef} >
             <option value="">Select Gesture</option>
-            {
+            {/* {
               gestureStrings.map((gesture, index) => {
                 return (
                   <option key={index} value={gesture.name}>{gesture.icon}</option>
                 )
               })
-            }
+            } */}
           </select>
           <div className='input-group-append'>
             <button className='btn btn-primary' onClick={setGesture}>Add Gesture Name</button>
