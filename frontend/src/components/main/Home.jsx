@@ -353,9 +353,9 @@ return (
                         </p>{" "}
                         <h3 className="mb-4">
                           {" "}
-                          <strong>$ 129</strong>{" "}
+                          <strong>INR 250</strong>{" "}
                           <small className="text-muted" style={{ fontSize: 16 }}>
-                            /year
+                            / month
                           </small>{" "}
                         </h3>{" "}
                         <a
@@ -405,16 +405,16 @@ return (
                         </p>{" "}
                         <h3 className="mb-4">
                           {" "}
-                          <strong>$ 499</strong>{" "}
+                          <strong>INR 1000</strong>{" "}
                           <small className="text-muted" style={{ fontSize: 16 }}>
-                            /year
+                            / month
                           </small>{" "}
                         </h3>{" "}
                         <a
                           type="button"
                           className="btn btn-primary w-100 mb-3"
                           fdprocessedid="ibc1nyv"
-                          href="https://buy.stripe.com/test_4gweVF3GD1SH7NSfYY"
+                          href="https://buy.stripe.com/test_28o14P3GD54T9W0cMO"
                           target='blank'
                         >
                           Buy
@@ -475,20 +475,22 @@ return (
                         </p>{" "}
                         <h3 className="mb-4">
                           {" "}
-                          <strong>$ 299</strong>{" "}
+                          <strong>INR 500</strong>{" "}
                           <small className="text-muted" style={{ fontSize: 16 }}>
-                            /year
+                            / month
                           </small>{" "}
                         </h3>{" "}
-                        <button
+                        <a
                           type="button"
                           className="btn btn-link w-100 mb-3"
                           style={{ backgroundColor: "hsl(0, 0%, 95%)" }}
                           data-ripple-color="primary"
                           fdprocessedid="yu269"
+                          href='https://buy.stripe.com/test_9AQ7tda5154T1pubIJ'
+                          target='blank'
                         >
                           Buy
-                        </button>{" "}
+                        </a>{" "}
                       </div>{" "}
                       <div className="card-body">
                         {" "}
