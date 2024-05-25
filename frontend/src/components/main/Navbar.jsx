@@ -59,6 +59,11 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
+                <NavLink className="nav-link me-3" to="/main/contactus">
+                  <font className='fw-bold fs-5'>Contact Us</font>
+                </NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink className="nav-link me-3" to="/admin/dashboard">
                   <font className='fw-bold fs-5'>Dashboard</font>
                 </NavLink>

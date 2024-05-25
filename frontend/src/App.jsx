@@ -19,6 +19,8 @@ import AdminDashboard from './components/admin/AdminDashboard';
 import ManageUser from './components/admin/ManageUser';
 import UserAuth from './UserAuth';
 import PoseClassifier from './components/user/PoseClassifier';
+import Thankyou from './components/main/Thankyou';
+import ContactUs from './components/main/ContactUs';
 
 function App() {
 
@@ -38,6 +40,8 @@ function App() {
                 <Route path='resetpassword' element={<ResetPassword />} />
                 <Route path='train' element={<TrainModel />} />
                 <Route path='aboutus' element={<Aboutus />} />
+                <Route path='thankyou' element={<Thankyou />} />
+                <Route path='contactus' element={<ContactUs />} />
                 <Route path='signup' element={<SignUp />} />
               </Route>
 
