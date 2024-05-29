@@ -81,6 +81,7 @@ const ImageClassifier = () => {
    * Loads the MobileNet model and warms it up so ready for use.
    **/
   async function loadMobileNetFeatureModel() {
+    console.log('Loading MobileNet v3');
     const URL =
       'https://tfhub.dev/google/tfjs-model/imagenet/mobilenet_v3_small_100_224/feature_vector/5/default/1';
 
@@ -228,10 +229,10 @@ const ImageClassifier = () => {
         let prediction = model.predict(imageFeatures).squeeze();
         let highestIndex = prediction.argMax().arraySync();
         let predictionArray = prediction.arraySync();
-
         setPrediction(imageClasses.map(imgClass => imgClass.name)[highestIndex]);
         setConfidence(Math.floor(predictionArray[highestIndex] * 100));
         console.log('Prediction: ' + imageClasses.map(imgClass => imgClass.name)[highestIndex] + ' with ' + Math.floor(predictionArray[highestIndex] * 100) + '% confidence');
+        console.log(prediction);
         // STATUS.innerText = ;
       });
 
