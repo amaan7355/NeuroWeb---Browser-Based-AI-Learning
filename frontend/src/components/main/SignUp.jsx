@@ -79,7 +79,7 @@ const SignUp = () => {
                 <img src="https://miro.medium.com/v2/resize:fit:750/1*ePyrIStlJnYr7xkqwozu8w.gif" className='d-block m-auto w-100' alt="" />
                 <h2 className='w-80 text-center font mt-4'>Empowering Users with <span className='text-primary'>AI Model Training</span> Online and Offline</h2><br />
                 <div className='align-items-bottom justify-content-bottom'>
-                <p className='mt-2 text-center'>Do you have any questions?<span className='text-decoration-underline fw-bold ms-2'>Contact us</span></p>
+                <p className='mt-2 text-center'>Do you have any questions?<span className='text-decoration-underline fw-bold ms-2'><a href="/main/contactus">Contact us</a> </span></p>
                 </div>
                 
               </div>
