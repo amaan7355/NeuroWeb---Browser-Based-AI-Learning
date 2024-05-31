@@ -7,6 +7,7 @@ const AudioClassifier = () => {
   
   const [trainedModel, setTrainedModel] = useState(null);
   const [accuracyValue, setAccuracyValue] = useState(0);
+  const [predictionResult, setPredictionResult] = useState('');
 
   const [listening, setListening] = useState(false);
 
@@ -158,6 +159,7 @@ const AudioClassifier = () => {
     const label = (await labelTensor.data())[0];
     // document.getElementById('console').textContent = label;
     console.log(label);
+    setPredictionResult(audioClasses[label].name);
     if (label == 2) {
       return;
     }
@@ -363,7 +365,9 @@ const AudioClassifier = () => {
                   </div>
                 </div>
                 <hr style={{ color: "#A9A9A9" }} />
-                <p className='text-muted mt-2 p-1 fw-medium'>You must train a model on the left before you can preview it here.</p>
+                <p className='text-muted mt-2 p-1 fw-medium'>
+                  {predictionResult}
+                </p>
               </div>
             </div>
           </div>

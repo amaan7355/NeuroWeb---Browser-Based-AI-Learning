@@ -12,6 +12,12 @@ const landmarkColors = {
   wrist: 'white'
 }
 
+const availableGestures = [
+  { 'thumbs_up': '👍' },
+  { 'victory': '✌🏻' },
+  { 'thumbs-down': '👎' }
+]
+
 async function createDetector() {
   return window.handPoseDetection.createDetector(
     window.handPoseDetection.SupportedModels.MediaPipeHands,
@@ -100,7 +106,7 @@ const PoseClassifier = () => {
 
   const nameRef = useRef(null);
 
-  const [selGesture, setSelGesture] = useState(null);
+  const [selGestures, setSelGestures] = useState([]);
   const [gestureNames, setGestureNames] = useState({
     left: ['-', '-', '-', '-', '-'],
     right: ['-', '-', '-', '-', '-']
@@ -176,6 +182,7 @@ const PoseClassifier = () => {
         }
 
         const est = GE.estimate(hand.keypoints3D, 9)
+        console.log(est);
         if (est.gestures.length > 0) {
 
           // find gesture with highest match score
@@ -184,7 +191,15 @@ const PoseClassifier = () => {
           })
           const chosenHand = hand.handedness.toLowerCase()
           console.log(result);
-          resultLayer[chosenHand].innerText = gestureStrings[result.name]
+          const gestureObj = selGestures.reduce((obj, item) => {
+            const key = Object.keys(item)[0]; // Get the key from the item
+            const value = item[key]; // Get the value from the item
+            obj[key] = value; // Add the key-value pair to the object
+            return obj;
+          }, {})
+
+          console.log(gestureObj);
+          resultLayer[chosenHand].innerText = gestureObj[result.name]
           updateDebugInfo(est.poseData, chosenHand, setRightHand, setLeftHand)
         }
 
@@ -276,6 +291,29 @@ const PoseClassifier = () => {
   return (
     <div className="container1 mx-5">
       <button onClick={run} className='btn btn-primary' style={{ width: "120px", height: "200px" }}><font className='fs-5'>Start Post Estimator</font></button>
+
+      <div>
+        <h2>Choose Gestures</h2>
+        {
+          availableGestures.map((gesture, index) => {
+            return (
+              <div>
+                <input type="checkbox" checked={
+                  selGestures.filter(g => Object.keys(g)[0] === Object.keys(gesture)[0]).length > 0
+                } onChange={(e) => {
+                  if (e.target.checked) {
+                    setSelGestures([...selGestures, gesture]);
+                    console.log(selGestures);
+                  } else {
+                    setSelGestures(selGestures.filter(g => Object.keys(g)[0] !== Object.keys(gesture)[0]))
+                  }
+                }} />
+                <label htmlFor="">{Object.keys(gesture)[0]}</label>
+              </div>
+            )
+          })
+        }
+      </div>
       <div className="video">
         <div id="video-container">
           <video id="pose-video" className="layer" playsInline="" />
