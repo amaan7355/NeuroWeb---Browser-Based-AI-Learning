@@ -7,7 +7,8 @@ require('dotenv').config();
 
 const router = express.Router();
 
-router.post("/add", (req, res) => {
+router.post("/add", verifyToken, (req, res) => {
+  req.body.user = req.user._id;
   console.log(req.body);
 
   new Model(req.body).save()
@@ -23,7 +24,7 @@ router.post("/add", (req, res) => {
 
 
 router.get("/getall", (req, res) => {
-  Model.find({})
+  Model.find({}).populate('user')
   .then((result) => {
     res.json(result);
   })

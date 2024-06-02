@@ -4,6 +4,7 @@ const express = require('express');
 
 const userRouter = require('./Routers/userRouter');
 const aiRouter = require('./Routers/aiRouter');
+const subscriptionRouter = require('./Routers/subscriptionRouter');
 const utilRouter = require('./Routers/utils');
 const cors = require('cors');
 
@@ -20,8 +21,9 @@ app.use(cors({
 app.use('/user', userRouter);
 app.use('/ai', aiRouter);
 app.use('/utils', utilRouter);
+app.use('/subscription', subscriptionRouter);
 
-app.use(express.static('./uploads'));
+app.use(express.static('./Static/Uploads'));
 
 // Routes
 

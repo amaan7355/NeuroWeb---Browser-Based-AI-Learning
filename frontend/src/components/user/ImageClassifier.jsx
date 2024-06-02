@@ -16,18 +16,18 @@ const ImageClassifier = () => {
   const camRef = useRef(null);
   const [imageClasses, setImageClasses] = useState([
     {
-      name: 'Phone',
+      name: 'Model Class 1',
       samples: [],
       default: true
     },
     {
-      name: 'Marker',
+      name: 'Model Class 2',
       samples: []
     },
   ])
   const addNewClass = () => {
     setImageClasses([...imageClasses, {
-      name: 'Untitled Class ' + imageClasses.length,
+      name: 'Model Class ' + (imageClasses.length+1),
       samples: []
     }])
   }
@@ -106,10 +106,6 @@ const ImageClassifier = () => {
   useEffect(() => {
     loadMobileNetFeatureModel();
   }, [])
-
-
-
-
 
   // Compile the model with the defined optimizer and specify a loss function to use.
 

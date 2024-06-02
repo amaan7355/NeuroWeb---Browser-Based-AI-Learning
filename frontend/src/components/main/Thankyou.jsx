@@ -1,7 +1,43 @@
 import React from 'react';
+import { useRef } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 // import './ThankYouPage.css'; // Make sure to create and import the CSS file
 
 const ThankYouPage = () => {
+
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+
+  const runOnce = useRef(false);
+
+  const saveSubscription = async () => {
+    const planDetails = JSON.parse(sessionStorage.getItem('plan'));
+    if (planDetails !== null) {
+      const res = await fetch('http://localhost:5000/subscription/add', {
+        method: 'POST',
+        body: JSON.stringify({
+          planDetails
+        }),
+        headers: {
+          'Content-Type' : 'application/json',
+          'x-auth-token' : currentUser.token
+        }
+      });
+      console.log(res.status);
+      if (res.status === 200) {
+        sessionStorage.removeItem('plan');
+      }
+    }
+  }
+
+  useEffect(() => {
+    if(runOnce.current === false){
+      saveSubscription();
+      runOnce.current = true;
+    }
+  }, [])
+  
+
   return (
     <div className="container mt-5">
       <div className="row justify-content-md-center">

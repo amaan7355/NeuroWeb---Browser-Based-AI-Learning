@@ -112,29 +112,6 @@ const PoseClassifier = () => {
     right: ['-', '-', '-', '-', '-']
   });
 
-  const MyGesture = {
-    name: 'MyGesture',
-    fingerprints: [
-      { // Fingerprint 0
-        position: {
-          thumb: [0, 1, 0],
-          index: [0, 1, 0],
-          middle: [0, 1, 0],
-          ring: [0, 1, 0],
-          pinky: [0, 1, 0], // [flexion, abduction, adduction]
-        },
-        rotation: {
-          thumb: [0, 0],
-          index: [0, 0],
-          middle: [0, 0],
-          ring: [0, 0],
-          pinky: [0, 0], // [flexion, abduction]
-        },
-        handedness: 0, // 0 for right hand, 1 for left hand
-      },
-    ],
-  };
-
   async function main() {
 
     const video = document.querySelector("#pose-video")
@@ -152,6 +129,8 @@ const PoseClassifier = () => {
     const knownGestures = [
       fp.Gestures.VictoryGesture,
       fp.Gestures.ThumbsUpGesture,
+      // fp.Gestures.ThumbsDownGesture,
+      // fp.Gestures.,
       // MyGesture
       createNewGesture('thumbs-down'),
     ]
@@ -278,7 +257,6 @@ const PoseClassifier = () => {
       temp[checkGesture(leftHand)] = value;
     }
     console.log(temp);
-
 
     setGestureNames(temp);
   }
