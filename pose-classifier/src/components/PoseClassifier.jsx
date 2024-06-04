@@ -15,7 +15,10 @@ const landmarkColors = {
 const availableGestures = [
   { 'thumbs_up': '👍' },
   { 'victory': '✌🏻' },
-  { 'thumbs-down': '👎' }
+  { 'thumbs-down': '👎' },
+  { 'closed-fist': '👊' },
+  { 'open-palm': '🖐' },
+  { 'pinch': '🤏' },
 ]
 
 async function createDetector() {
@@ -132,7 +135,11 @@ const PoseClassifier = () => {
       // fp.Gestures.ThumbsDownGesture,
       // fp.Gestures.,
       // MyGesture
-      createNewGesture('thumbs-down'),
+      createThumbsDownGesture(),
+      createClosedFistGesture(),
+      createPinchGesture(),
+      createOpenPalmGesture(),
+
     ]
     const GE = new fp.GestureEstimator(knownGestures)
     // load handpose model
@@ -214,16 +221,46 @@ const PoseClassifier = () => {
 
   }
 
-  const createNewGesture = (gesture_name) => {
-    const gesture = new fp.GestureDescription(gesture_name);
+  const createThumbsDownGesture = () => {
+    const gesture = new fp.GestureDescription('thumbs-down');
     gesture.addCurl(fp.Finger.Thumb, fp.FingerCurl.NoCurl);
     gesture.addDirection(fp.Finger.Thumb, fp.FingerDirection.VerticalDown, 1.0);
     return gesture
   }
 
-  const setPoseIcon = (setHand, text) => {
+  const createClosedFistGesture = () => {
+    const gesture = new fp.GestureDescription('closed-fist');
 
+    for (let finger of [fp.Finger.Thumb, fp.Finger.Index, fp.Finger.Middle, fp.Finger.Ring, fp.Finger.Pinky]) {
+      gesture.addCurl(finger, fp.FingerCurl.FullCurl, 1.0);
+    }
+
+    return gesture;
   }
+
+  const createOpenPalmGesture = () => {
+  const gesture = new fp.GestureDescription('open-palm');
+  
+  for(let finger of [fp.Finger.Thumb, fp.Finger.Index, fp.Finger.Middle, fp.Finger.Ring, fp.Finger.Pinky]) {
+    gesture.addCurl(finger, fp.FingerCurl.NoCurl, 1.0);
+    gesture.addDirection(finger, fp.FingerDirection.VerticalUp, 1.0);
+  }
+  
+  return gesture;
+}
+
+const createPinchGesture = () => {
+  const gesture = new fp.GestureDescription('pinch');
+  
+  gesture.addCurl(fp.Finger.Thumb, fp.FingerCurl.NoCurl, 1.0);
+  gesture.addCurl(fp.Finger.Index, fp.FingerCurl.NoCurl, 1.0);
+  
+  for(let finger of [fp.Finger.Middle, fp.Finger.Ring, fp.Finger.Pinky]) {
+    gesture.addCurl(finger, fp.FingerCurl.FullCurl, 1.0);
+  }
+  
+  return gesture;
+}
 
   const checkGesture = (hand) => {
     console.log(hand);
