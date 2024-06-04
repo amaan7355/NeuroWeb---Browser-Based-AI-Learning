@@ -11,13 +11,6 @@ const STOP_DATA_GATHER = -1;
 const CLASS_NAMES = ['new', 'old'];
 
 const ImageClassifier = () => {
-
-  const [numEpochs, setNumEpochs] = useState(10);
-  const [numBatchsize, setnumBatchsize] = useState(5);
-
-  const [prediction, setPrediction] = useState('');
-  const [confidence, setConfidence] = useState('');
-
   const [trainedModel, setTrainedModel] = useState(null);
   const { token } = JSON.parse(sessionStorage.getItem('user'));
   const camRef = useRef(null);
@@ -60,8 +53,6 @@ const ImageClassifier = () => {
   // }
 
   const collectImageData = (num) => {
-    imageClasses[num].samples.push(camRef.current.src);
-    console.log(imageClasses[num].samples);
     gatherDataState = (gatherDataState === STOP_DATA_GATHER) ? num : STOP_DATA_GATHER;
     dataGatherLoop();
 
@@ -81,7 +72,6 @@ const ImageClassifier = () => {
    * Loads the MobileNet model and warms it up so ready for use.
    **/
   async function loadMobileNetFeatureModel() {
-    console.log('Loading MobileNet v3');
     const URL =
       'https://tfhub.dev/google/tfjs-model/imagenet/mobilenet_v3_small_100_224/feature_vector/5/default/1';
 
@@ -197,7 +187,7 @@ const ImageClassifier = () => {
     let inputsAsTensor = tf.stack(trainingDataInputs);
 
     let results = await model.fit(inputsAsTensor, oneHotOutputs, {
-      shuffle: true, batchSize: numBatchsize, epochs: numEpochs,
+      shuffle: true, batchSize: 5, epochs: 10,
       callbacks: { onEpochEnd: logProgress }
     });
 
@@ -229,10 +219,8 @@ const ImageClassifier = () => {
         let prediction = model.predict(imageFeatures).squeeze();
         let highestIndex = prediction.argMax().arraySync();
         let predictionArray = prediction.arraySync();
-        setPrediction(imageClasses.map(imgClass => imgClass.name)[highestIndex]);
-        setConfidence(Math.floor(predictionArray[highestIndex] * 100));
+
         console.log('Prediction: ' + imageClasses.map(imgClass => imgClass.name)[highestIndex] + ' with ' + Math.floor(predictionArray[highestIndex] * 100) + '% confidence');
-        console.log(prediction);
         // STATUS.innerText = ;
       });
 
@@ -258,9 +246,9 @@ const ImageClassifier = () => {
     console.log('Tensors in memory: ' + tf.memory().numTensors);
   }
 
-  async function saveModel() {
-    const saveResult = await model.save('downloads://my-model');
-    console.log(saveResult);
+  async function saveModel(model) {
+    // const saveResult = await model.save('downloads://my-model');
+    // console.log(saveResult);
     saveToDb();
   }
 
@@ -268,13 +256,13 @@ const ImageClassifier = () => {
     const res = await fetch(`${import.meta.env.VITE_API_URL}/ai/add`, {
       method: "POST",
       body: JSON.stringify({
-        type: 'Image',
-        file: 'model.json',
+        type : 'Image',
+        file : 'model.json',
         createdAt: new Date()
       }),
       headers: {
         'Content-type': 'application/json',
-        'x-auth-token': token
+        'x-auth-token' : token
       }
     });
     console.log(res.status);
@@ -327,26 +315,11 @@ const ImageClassifier = () => {
                     <hr style={{ color: "#A9A9A9" }} />
                     <button className='btn btn-light w-100 p-2' style={{ textAlign: "left" }}>
                       <div className='row'>
-                        <div className=''>
-                          <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                              <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                  Advanced
-                                </button>
-                              </h2>
-                              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <div>
-                                    <label for="epochs" class="form-label">Number of Epochs</label>
-                                    <input type="number" id='epochs' className='form-control' value={numEpochs} onChange={e => setNumEpochs(e.target.value)} />
-                                    <label for="batchsize" class='formlabel'>Number of Batch Size</label>
-                                    <input type="number" id='batchsize' className='form-control' value={numBatchsize} onChange={e => setnumBatchsize(e.target.value)} />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                        <div className='col-md-6'>
+                          <h7>Advanced</h7>
+                        </div>
+                        <div className='col-md-6'>
+                          <i className="fa-solid fa-angle-down pt-2" style={{ display: "flex", justifyContent: "right" }}></i>
                         </div>
                       </div>
                     </button>
@@ -370,7 +343,6 @@ const ImageClassifier = () => {
                   </div>
                   <hr style={{ color: "#A9A9A9" }} />
                   <p className='text-muted mt-2 p-1 fw-medium'>You must train a model on the left before you can preview it here.</p>
-                  <p>{prediction} with {confidence}%</p>
                 </div>
               </div>
             </div>
