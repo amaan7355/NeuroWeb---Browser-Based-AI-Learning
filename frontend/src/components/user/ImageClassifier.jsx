@@ -12,22 +12,22 @@ const CLASS_NAMES = ['new', 'old'];
 
 const ImageClassifier = () => {
   const [trainedModel, setTrainedModel] = useState(null);
-  const { token } = JSON.parse(sessionStorage.getItem('user'));
+  const [predictionResult, setPredictionResult] = useState('');
   const camRef = useRef(null);
   const [imageClasses, setImageClasses] = useState([
     {
-      name: 'Phone',
+      name: 'Model Class 1',
       samples: [],
       default: true
     },
     {
-      name: 'Marker',
+      name: 'Model Class 2',
       samples: []
     },
   ])
   const addNewClass = () => {
     setImageClasses([...imageClasses, {
-      name: 'Untitled Class ' + imageClasses.length,
+      name: 'Model Class ' + (imageClasses.length+1),
       samples: []
     }])
   }
@@ -55,9 +55,7 @@ const ImageClassifier = () => {
   const collectImageData = (num) => {
     gatherDataState = (gatherDataState === STOP_DATA_GATHER) ? num : STOP_DATA_GATHER;
     dataGatherLoop();
-
   }
-
 
   let mobilenet = undefined;
   let gatherDataState = STOP_DATA_GATHER;
@@ -89,8 +87,7 @@ const ImageClassifier = () => {
 
   // Call the function immediately to start loading.
 
-  useEffect(() => {
-    loadMobileNetFeatureModel();
+  const initializeModel = () => {
     model.add(tf.layers.dense({ inputShape: [1024], units: 128, activation: 'relu' }));
     model.add(tf.layers.dense({ units: imageClasses.map(imgClass => imgClass.name).length, activation: 'softmax' }));
     model.compile({
@@ -102,12 +99,13 @@ const ImageClassifier = () => {
       // As this is a classification problem you can record accuracy in the logs too!
       metrics: ['accuracy']
     });
+
     model.summary();
+  }
+
+  useEffect(() => {
+    loadMobileNetFeatureModel();
   }, [])
-
-
-
-
 
   // Compile the model with the defined optimizer and specify a loss function to use.
 
@@ -155,12 +153,13 @@ const ImageClassifier = () => {
     if (videoPlaying && gatherDataState !== STOP_DATA_GATHER) {
       let imageFeatures = tf.tidy(function () {
         let videoFrameAsTensor = tf.browser.fromPixels(VIDEO);
+        console.log(videoFrameAsTensor);
         let resizedTensorFrame = tf.image.resizeBilinear(videoFrameAsTensor, [MOBILE_NET_INPUT_HEIGHT,
           MOBILE_NET_INPUT_WIDTH], true);
         let normalizedTensorFrame = resizedTensorFrame.div(255);
         return mobilenet.predict(normalizedTensorFrame.expandDims()).squeeze();
       });
-
+      console.log(imageFeatures);
       trainingDataInputs.push(imageFeatures);
       trainingDataOutputs.push(gatherDataState);
 
@@ -180,6 +179,7 @@ const ImageClassifier = () => {
   }
 
   async function trainAndPredict() {
+    initializeModel();
     predict = false;
     tf.util.shuffleCombo(trainingDataInputs, trainingDataOutputs);
     let outputsAsTensor = tf.tensor1d(trainingDataOutputs, 'int32');
@@ -190,7 +190,7 @@ const ImageClassifier = () => {
       shuffle: true, batchSize: 5, epochs: 10,
       callbacks: { onEpochEnd: logProgress }
     });
-
+    console.log(results);
     outputsAsTensor.dispose();
     oneHotOutputs.dispose();
     inputsAsTensor.dispose();
@@ -222,6 +222,8 @@ const ImageClassifier = () => {
 
         console.log('Prediction: ' + imageClasses.map(imgClass => imgClass.name)[highestIndex] + ' with ' + Math.floor(predictionArray[highestIndex] * 100) + '% confidence');
         // STATUS.innerText = ;
+
+        setPredictionResult(imageClasses.map(imgClass => imgClass.name)[highestIndex] + ' with ' + Math.floor(predictionArray[highestIndex] * 100) + '% confidence');
       });
 
       window.requestAnimationFrame(predictLoop);
@@ -247,8 +249,8 @@ const ImageClassifier = () => {
   }
 
   async function saveModel(model) {
-    // const saveResult = await model.save('downloads://my-model');
-    // console.log(saveResult);
+    const saveResult = await model.save('downloads://my-model');
+    console.log(saveResult);
     saveToDb();
   }
 
@@ -261,8 +263,7 @@ const ImageClassifier = () => {
         createdAt: new Date()
       }),
       headers: {
-        'Content-type': 'application/json',
-        'x-auth-token' : token
+        'Content-type': 'application/json'
       }
     });
     console.log(res.status);
@@ -342,7 +343,9 @@ const ImageClassifier = () => {
                     </div>
                   </div>
                   <hr style={{ color: "#A9A9A9" }} />
-                  <p className='text-muted mt-2 p-1 fw-medium'>You must train a model on the left before you can preview it here.</p>
+                  <p className='text-muted mt-2 p-1 fw-medium'>
+                    {predictionResult}
+                  </p>
                 </div>
               </div>
             </div>

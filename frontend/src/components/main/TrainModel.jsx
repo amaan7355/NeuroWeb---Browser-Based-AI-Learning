@@ -61,7 +61,7 @@ const TrainModel = () => {
                                 <p className="card-text fs-5">
                                     Train a model to classify hand gestures.
                                 </p>
-                                <a href='/user/pose' className='btn btn-primary w-100'>Start Project</a>
+                                <a href='http://localhost:5174' className='btn btn-primary w-100'>Start Project</a>
                             </div>
                             {/* <div className="card-footer">
                       <small className="text-muted">Last updated 3 mins ago</small>

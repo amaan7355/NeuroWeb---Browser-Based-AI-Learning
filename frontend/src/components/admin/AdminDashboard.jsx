@@ -13,6 +13,8 @@ import { Bar } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
 import { Pie } from 'react-chartjs-2';
 import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -87,6 +89,68 @@ const data1 = {
 
 const AdminDashboard = () => {
 
+    const [userList, setUserList] = useState([]);
+    const [modelList, setModelList] = useState([]);
+    const [subscriptionList, setSubscriptionList] = useState([]);
+
+    const fetchUsers = () => {
+        fetch('http://localhost:5000/user/getall', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                setUserList(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+    const fetchModels = () => {
+        fetch('http://localhost:5000/ai/getall', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                setModelList(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+    const fetchSubscription = () => {
+        fetch('http://localhost:5000/subscription/getall', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                setSubscriptionList(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+    useEffect(() => {
+        fetchUsers();
+        fetchModels();
+        fetchSubscription();
+    }, [])
+
+
     return (
 
         <div className='body-dashboard'>
@@ -102,7 +166,7 @@ const AdminDashboard = () => {
                                 <div className='col-md-4 p-1'>
                                     <div className='text-center'>
                                         <h5 className='text-muted fw-bold'>Total Users</h5>
-                                        <p>1500</p>
+                                        <p>{userList.length}</p>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +183,7 @@ const AdminDashboard = () => {
                                 <div className='col-md-6 p-1'>
                                     <div className='text-center'>
                                         <h5 className='text-muted fw-bold'>Total Models Trained</h5>
-                                        <p>100</p>
+                                        <p>{modelList.length}</p>
                                     </div>
                                 </div>
                             </div>
@@ -133,8 +197,8 @@ const AdminDashboard = () => {
                                 </div>
                                 <div className='col-md-6 p-1'>
                                     <div className='text-center'>
-                                        <h5 className='text-muted fw-bold'>Total Feedbacks</h5>
-                                        <p>9000</p>
+                                        <h5 className='text-muted fw-bold'>Total Subscriptions</h5>
+                                        <p>{subscriptionList.length}</p>
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +206,7 @@ const AdminDashboard = () => {
                     </div>
                 </div>
 
-                <div className='row mt-2'>
+                {/* <div className='row mt-2'>
                     <div className='col-md-8'>
                         <div className='card shadow p-2' style={{ border: "none" }}>
                             <h3 className='text-center mt-3'>Statistics</h3>
@@ -155,113 +219,91 @@ const AdminDashboard = () => {
                             <Pie data={data1} />
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className='mt-5'>
                     <MDBTable align='middle'>
                         <MDBTableHead>
                             <tr>
                                 <th scope='col'>Name</th>
-                                <th scope='col'>Title</th>
+                                <th scope='col'>Email</th>
                                 <th scope='col'>Status</th>
-                                <th scope='col'>Position</th>
                                 <th scope='col'>Actions</th>
                             </tr>
                         </MDBTableHead>
                         <MDBTableBody>
+                            {
+                                userList.map(user => (
+                                    <tr>
+                                        <td>
+                                            <div className='d-flex align-items-center'>
+                                                <img
+                                                    src={'http://localhost:5000/' + user.avatar}
+                                                    alt=''
+                                                    style={{ width: '45px', height: '45px' }}
+                                                    className='rounded-circle'
+                                                />
+                                                <div className='ms-3'>
+                                                    <p className='fw-bold mb-1'>{user.name}</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p className='fw-normal mb-1'>{user.email}</p>
+                                            
+                                        </td>
+                                        <td>
+                                            <MDBBadge color='success' pill>
+                                                Active
+                                            </MDBBadge>
+                                        </td>
+
+                                        <td>
+                                            <MDBBtn color='link' rounded size='sm'>
+                                                Edit
+                                            </MDBBtn>
+                                        </td>
+                                    </tr>
+                                ))
+                            }
+                        </MDBTableBody>
+                    </MDBTable>
+                </div>
+               
+                <div className='mt-5'>
+                    <MDBTable align='middle'>
+                        <MDBTableHead>
                             <tr>
-                                <td>
-                                    <div className='d-flex align-items-center'>
-                                        <img
-                                            src='https://mdbootstrap.com/img/new/avatars/8.jpg'
-                                            alt=''
-                                            style={{ width: '45px', height: '45px' }}
-                                            className='rounded-circle'
-                                        />
-                                        <div className='ms-3'>
-                                            <p className='fw-bold mb-1'>John Doe</p>
-                                            <p className='text-muted mb-0'>john.doe@gmail.com</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p className='fw-normal mb-1'>Software engineer</p>
-                                    <p className='text-muted mb-0'>IT department</p>
-                                </td>
-                                <td>
-                                    <MDBBadge color='success' pill>
-                                        Active
-                                    </MDBBadge>
-                                </td>
-                                <td>Senior</td>
-                                <td>
-                                    <MDBBtn color='link' rounded size='sm'>
-                                        Edit
-                                    </MDBBtn>
-                                </td>
+                                <th scope='col'>User Name</th>
+                                <th scope='col'>Plan Name</th>
+                                <th scope='col'>Plan Amount</th>
+                                <th scope='col'>Purchased On</th>
                             </tr>
-                            <tr>
-                                <td>
-                                    <div className='d-flex align-items-center'>
-                                        <img
-                                            src='https://mdbootstrap.com/img/new/avatars/6.jpg'
-                                            alt=''
-                                            style={{ width: '45px', height: '45px' }}
-                                            className='rounded-circle'
-                                        />
-                                        <div className='ms-3'>
-                                            <p className='fw-bold mb-1'>Alex Ray</p>
-                                            <p className='text-muted mb-0'>alex.ray@gmail.com</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p className='fw-normal mb-1'>Consultant</p>
-                                    <p className='text-muted mb-0'>Finance</p>
-                                </td>
-                                <td>
-                                    <MDBBadge color='primary' pill>
-                                        Onboarding
-                                    </MDBBadge>
-                                </td>
-                                <td>Junior</td>
-                                <td>
-                                    <MDBBtn color='link' rounded size='sm'>
-                                        Edit
-                                    </MDBBtn>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div className='d-flex align-items-center'>
-                                        <img
-                                            src='https://mdbootstrap.com/img/new/avatars/7.jpg'
-                                            alt=''
-                                            style={{ width: '45px', height: '45px' }}
-                                            className='rounded-circle'
-                                        />
-                                        <div className='ms-3'>
-                                            <p className='fw-bold mb-1'>Kate Hunington</p>
-                                            <p className='text-muted mb-0'>kate.hunington@gmail.com</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p className='fw-normal mb-1'>Designer</p>
-                                    <p className='text-muted mb-0'>UI/UX</p>
-                                </td>
-                                <td>
-                                    <MDBBadge color='warning' pill>
-                                        Awaiting
-                                    </MDBBadge>
-                                </td>
-                                <td>Senior</td>
-                                <td>
-                                    <MDBBtn color='link' rounded size='sm'>
-                                        Edit
-                                    </MDBBtn>
-                                </td>
-                            </tr>
+                        </MDBTableHead>
+                        <MDBTableBody>
+                            {
+                                subscriptionList.map(subscription => (
+                                    <tr>
+                                        <td>
+                                            <div className='d-flex align-items-center'>
+                                               
+                                                <div className='ms-3'>
+                                                    <p className='fw-bold mb-1'>{subscription.user.name}</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p className='fw-normal mb-1'>{subscription.planDetails.name}</p>
+                                        </td>
+                                        <td>
+                                            <p className='fw-normal mb-1'>{subscription.planDetails.amount}</p>
+                                        </td>
+                                        <td>
+                                            <p className='fw-normal mb-1'>{new Date(subscription.createdAt).toDateString()}</p>
+                                        </td>
+                                    </tr>
+                                ))
+                            }
                         </MDBTableBody>
                     </MDBTable>
                 </div>
